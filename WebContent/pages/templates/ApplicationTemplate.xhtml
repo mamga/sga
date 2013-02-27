@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Sistema de Gestão Administrativa - SEAB</title>
+	
+	<!-- <h:outputStylesheet name="theme.css" 					library="styles" />
+	<h:outputStylesheet name="richf.css" 					library="styles" />
+	<h:outputStylesheet name="richf/mensagens.css" 			library="styles" />
+	
+	<h:outputScript 	name="cookie.js" 					library="scripts"/>
+	<h:outputScript 	name="drag.js"	 					library="scripts"/>
+	<h:outputScript 	name="jquery.maskedinput-1.2.2.js"	library="scripts"/> -->
+	
+</h:head>
+
+<h:body>
+		
+	<f:view>
+		<div id="divTituloLayout">
+			<ui:include src="/pages/templates/header.xhtml" />
+		</div>
+		<div>
+			<ui:include src="/pages/templates/menu.xhtml" />
+		</div>
+		
+		<div style="padding: 5px;">
+		    
+	    	<ui:insert name="message">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+			</ui:insert>
+			
+			<ui:insert name="body"/>
+			
+		</div>
+		
+
+	</f:view>
+
+</h:body>
+</html>
+
