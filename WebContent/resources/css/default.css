@@ -1,0 +1,26 @@
+body {
+    background-color: #D6D5D5;
+    margin: 0;
+    padding: 0;
+}
+
+#cabecalho {
+    background-image: url("../resources/images/meio_cabec.jpg");
+    background-repeat: repeat-x;
+    display: block;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+.cabecalhoColuna1 {  
+    width: 15%;  
+    vertical-align:top;
+}  
+
+
+.cabecalhoColuna2 {  
+    width: 85%;
+    vertical-align:center;
+}  
+    
