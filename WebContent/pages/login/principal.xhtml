@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/pages/templates/ApplicationTemplate.xhtml">
+		<ui:define name="body">
+			
+			<div id="conteudo_corpo">
+							
+			<h:form id="formulario">
+       
+	             <p:panel header="Consulta Geral de Protocolos"> 
+		            	<h:panelGrid columns="2">
+		            	
+			                <h:outputLabel for="codigo" value="Codigo:" /> 
+			                <p:inputText id="codigo" value="" label="#{setorMB.codigo}" /> 
+			     
+			                <h:outputLabel for="descricao" value="Descrição:" /> 
+			                <p:inputText id="descricao" value="" required="true" label="#{setorMB.descricao}"/> 
+			     
+			                <h:outputLabel for="" value="" /> 
+			                <p:commandButton type="button" value="Consultar" icon="ui-icon-check" style="margin:0"/>
+			                
+			                 
+		                </h:panelGrid>
+	            </p:panel> 
+	       
+	              <br></br>
+	             
+	            <p:dataTable id="tabela" var="setor" value="#{setorMB.listaSetores}"> 
+	                     
+	                <p:column headerText="Código"> 
+	                    <h:outputText value="#{setor.codigo}" /> 
+	                </p:column> 
+	         
+	                <p:column headerText="Descrição"> 
+	                    <h:outputText value="#{setor.descricao}" /> 
+	                </p:column> 
+	            </p:dataTable> 
+	        </h:form>  			
+			
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</ui:component>

@@ -4,12 +4,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <head>
+	   
+   </head>
+      
    <h:body>  
      <ui:composition>
-        <div id="topMessage">
-            <h4>MENU.XHTML</h4>
-        </div>
+           
+			<p:menubar>  
+		        <p:submenu label="Cadastros">  
+		            <p:menuitem value="Item 1" url="#" />
+		            <p:menuitem value="Item 2" url="#" />
+		            <p:menuitem value="Item 3" url="#" />
+		            <p:menuitem value="Item 4" url="#" />  
+		        </p:submenu>  
+		  
+		        <p:submenu label="Consultas">  
+		            <p:menuitem value="Consulta Geral Protocolos" url="#" />  
+		            <p:menuitem value="Consulta por Número Protocolo" url="#" />
+		            <p:menuitem value="Meus Protocolos" url="#" />
+		        </p:submenu>  
+		  		  
+		        <p:menuitem value="Sair" url="#" />  
+		  		        
+		    </p:menubar>             
+           
      </ui:composition>  
    </h:body>
 </html>
