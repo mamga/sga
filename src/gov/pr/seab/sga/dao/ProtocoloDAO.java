@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface ProtocoloDAO {
 	
-	public Collection<Protocolo> listar(ProtocoloDTO protocoloDTO);
+	public Collection<Protocolo> listar(ProtocoloDTO protocoloDTO) throws Exception;
 	
-	public Protocolo obter(ProtocoloDTO protocoloDTO);
+	public Protocolo obter(ProtocoloDTO protocoloDTO) throws Exception;
 	
-	public List<TramitacaoProtocoloDTO> listarTramitacao(ProtocoloDTO protocoloDTO);
+	public List<TramitacaoProtocoloDTO> listarTramitacao(ProtocoloDTO protocoloDTO) throws Exception;
 	
 	public ParecerTramitacaoDTO listarParecer(String parecerId);
 

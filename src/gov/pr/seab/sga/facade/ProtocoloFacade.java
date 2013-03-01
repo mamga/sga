@@ -34,15 +34,15 @@ public class ProtocoloFacade {
 
 	
 	
-	public static Collection<Protocolo> listarProtocolo(ProtocoloDTO protocoloDTO) {
+	public static Collection<Protocolo> listarProtocolo(ProtocoloDTO protocoloDTO) throws Exception {
 		return mainFrameFactory.getProtocoloDAO().listar(protocoloDTO);
 	}
 	
-	public static Protocolo obterProtocolo(ProtocoloDTO protocoloDTO){
+	public static Protocolo obterProtocolo(ProtocoloDTO protocoloDTO) throws Exception{
 		return mainFrameFactory.getProtocoloDAO().obter(protocoloDTO);
 	}
 	
-	public static List<TramitacaoProtocoloDTO> listarTramitacaoProtocolo(ProtocoloDTO protocoloDTO) {
+	public static List<TramitacaoProtocoloDTO> listarTramitacaoProtocolo(ProtocoloDTO protocoloDTO) throws Exception {
 		return mainFrameFactory.getProtocoloDAO().listarTramitacao(protocoloDTO);
 	}
 	

@@ -1,9 +1,5 @@
 package gov.pr.seab.sga.util;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -20,24 +16,14 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Properties;
 import java.util.Set;
 import java.util.Stack;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.jboss.resteasy.spi.ApplicationException;
 
 public class Util {
 
@@ -58,7 +44,7 @@ public class Util {
 	 * @return void
 	 * @throws ApplicationException
 	 */	
-	public static void enviarEmail(final String assunto, final String remetente, final String texto, final String destinatarioPara, final String destinatarioCc, String destinatarioBcc, String nomeAnexo, String textoAnexo) throws ApplicationException{
+	/*public static void enviarEmail(final String assunto, final String remetente, final String texto, final String destinatarioPara, final String destinatarioCc, String destinatarioBcc, String nomeAnexo, String textoAnexo) {
 		try {
 			if ("true".equals(Mensagem.getInstance().getMessage("email_enviar"))) {
 				final Properties mailProps = new Properties();
@@ -119,7 +105,7 @@ public class Util {
 			throw new ApplicationException("mensagem.email.erro");
 		}
 	
-	}
+	}*/
 	
 	/**
 	 * Testa se o valor informado e numerico ou nao.
@@ -396,7 +382,7 @@ public class Util {
 	 * @version 1.3, 29/05/2006
 	 * @throws ApplicationException 
 	 */
-	public static void limpaBean(Object bean) throws ApplicationException{
+	/*public static void limpaBean(Object bean) throws ApplicationException{
 		Short zeroShort = 0;
 		char  zeroChar  = 0;
 		byte  zeroByte  = 0;
@@ -434,7 +420,7 @@ public class Util {
 				}
 			}
 		}
-	}
+	}*/
 
 	/**
 	 * Recebe uma string str e uma máscara mask onde , da esquerda para a direita, 
@@ -577,20 +563,16 @@ public class Util {
 		return true;
 	}
 
-	public static BigDecimal formataBigDecimal(String value) throws ApplicationException {
+	public static BigDecimal formataBigDecimal(String value) throws ParseException {
 		Locale brasil = new Locale ("pt", "BR");  
 		DecimalFormat df = new DecimalFormat ("#,##0.00", new DecimalFormatSymbols (brasil));  
 		df.setParseBigDecimal (true);  
-		try {  
-			BigDecimal b1 = (BigDecimal) df.parse(value);  
+		BigDecimal b1 = (BigDecimal) df.parse(value);  
 
-			String s1 = df.format (b1);  
-			Logger.getLogger(Util.class).debug(s1);
+		String s1 = df.format (b1);  
+		Logger.getLogger(Util.class).debug(s1);
 
-			return b1;
-		} catch (Exception e) {  
-			throw new ApplicationException("erro: ", e);
-		}
+		return b1;
 	}
 
 	/**
@@ -605,7 +587,7 @@ public class Util {
 		return lista != null && !lista.isEmpty();
 	}
 
-	/**
+	/** does not contain a class called StringUtils. Several third-party
 	 * Testa se um código não é nulo, nem vazio, nem igual a "-1".
 	 * 
 	 * @author aleixo
@@ -666,16 +648,11 @@ public class Util {
 	 * @throws ApplicationException
 	 * @return
 	 */
-	public static Integer safeInteger(String numero) throws ApplicationException{
-		try{
-			if(StringUtils.isNotBlank(numero) && Valores.isInteger(numero.trim()))
-				return Integer.valueOf(StringUtils.trim(numero));			
-			return null;
-		}
-		catch(NumberFormatException ne){
-			throw new ApplicationException("erro.executaroperacao",new String[]{"Util.safeInteger(): O valor passado como parâmetro:"+numero+"Não pode ser convertido em um inteiro."},ne,ApplicationException.ICON_ERRO);
-		}
-	}
+	/*public static Integer safeInteger(String numero) {
+		if(StringUtils.isNotBlank(numero) && Valores.isInteger(numero.trim()))
+			return Integer.valueOf(StringUtils.trim(numero));			
+		return null;
+	}*/
 
 	/**
 	 * Tenta converter um numero pra long. Se não consegue, retorna nulo.<br>
@@ -685,16 +662,11 @@ public class Util {
 	 * @throws ApplicationException
 	 * @return
 	 */
-	public static Long safeLong(String numero) throws ApplicationException{
-		try{
-			if(StringUtils.isNotBlank(numero) && Valores.isInteger(numero.trim()))
-				return Long.valueOf(StringUtils.trim(numero));			
-			return null;
-		}
-		catch(NumberFormatException ne){
-			throw new ApplicationException("erro.executaroperacao",new String[]{"Util.safeLong(): O valor passado como parâmetro:"+numero+"Não pode ser convertido em um inteiro."},ne,ApplicationException.ICON_ERRO);
-		}
-	}
+/*	public static Long safeLong(String numero){
+		if(StringUtils.isNotBlank(numero) && Valores.isInteger(numero.trim()))
+			return Long.valueOf(StringUtils.trim(numero));			
+		return null;
+	}*/
 
 	/**
 	 * Adiciona um atributo na Sessão do Servidor de Aplicação.
@@ -704,7 +676,7 @@ public class Util {
 	 * @param sessao
 	 * @see Util.limparAtributosDaSessao()
 	 */
-	public static void adicionarAtributoASessao(HttpServletRequest request,
+/*	public static void adicionarAtributoASessao(HttpServletRequest request,
 			String nomeDoAtributo, Object obj) throws ApplicationException {
 
 		if (nomeDoAtributo.endsWith(TIMEOUT)) {
@@ -712,7 +684,7 @@ public class Util {
 		}
 
 		request.getSession().setAttribute(nomeDoAtributo, obj);
-	}
+	}*/
 
 	/**
 	 * Adiciona atributo a sessão com time out.
@@ -803,12 +775,12 @@ public class Util {
 	 * @param timeOut
 	 * @throws ApplicationException
 	 */
-	public static Object obterAtributoASessao(HttpServletRequest request,
+	/*public static Object obterAtributoASessao(HttpServletRequest request,
 			String nomeDoAtributo) throws ApplicationException {
 
 		return obterAtributoASessao(request, nomeDoAtributo, false);
 
-	}
+	}*/
 
 	/**
 	 * Obter atributo da sessão com ou sem time out.
@@ -820,7 +792,7 @@ public class Util {
 	 * @param timeOut
 	 * @throws ApplicationException
 	 */
-	public static Object obterAtributoASessao(HttpServletRequest request, String nomeDoAtributo, boolean isTimeOut)
+/*	public static Object obterAtributoASessao(HttpServletRequest request, String nomeDoAtributo, boolean isTimeOut)
 	throws ApplicationException {
 		if (request != null && nomeDoAtributo != null) {
 			if (isTimeOut) {
@@ -833,7 +805,7 @@ public class Util {
 		}
 
 	}
-
+*/
 	/**
 	 * Obter atributo da sessao sem time out.
 	 * 
@@ -844,12 +816,12 @@ public class Util {
 	 * @param timeOut
 	 * @throws ApplicationException
 	 */
-	public static void removerAtributoDaSessao(HttpServletRequest request,
+	/*public static void removerAtributoDaSessao(HttpServletRequest request,
 			String nomeDoAtributo) throws ApplicationException {
 
 		removerAtributoDaSessao(request, nomeDoAtributo, false);
 
-	}
+	}*/
 
 	/**
 	 * Obter atributo da sessão com ou sem time out.
@@ -861,7 +833,7 @@ public class Util {
 	 * @param timeOut
 	 * @throws ApplicationException
 	 */
-	public static void removerAtributoDaSessao(HttpServletRequest request,String nomeDoAtributo, boolean isTimeOut) throws ApplicationException {
+/*	public static void removerAtributoDaSessao(HttpServletRequest request,String nomeDoAtributo, boolean isTimeOut) throws ApplicationException {
 		if (request != null && nomeDoAtributo != null) {
 			if (isTimeOut) {
 				request.getSession().removeAttribute(nomeDoAtributo + TIMEOUT);
@@ -872,7 +844,7 @@ public class Util {
 			throw new ApplicationException("erro.executaroperacao",	new String[] { "" });
 		}
 
-	}
+	}*/
 
 	/**
 	 * Tira acentuacao e cedilha de uma string
@@ -882,24 +854,21 @@ public class Util {
 	 * @return String
 	 * @throws ApplicationException
 	 */
-	public static String formataStringSemAcento(String texto) throws ApplicationException{
+	public static String formataStringSemAcento(String texto) {
 		if (StringUtils.isBlank(texto)){
 			return texto;
 		}
-		try{
-			String in  = "ÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜáàãâäéèêëíìîïóòõôöúùûüçÇ";
-			String out = "AAAAAEEEEIIIIOOOOOUUUUaaaaaeeeeiiiiooooouuuucC";
-			StringBuffer textoFormatado = new StringBuffer();
-			for(int c=0; c< texto.length(); c++) {
-				char ch = texto.charAt(c);
-				int pos = in.indexOf(ch);
-				String cat = (pos == -1) ? String.valueOf(ch) : out.substring(pos, pos+1);
-				textoFormatado.append(cat);
-			}
-			return textoFormatado.toString();
-		} catch (Exception e) {
-			throw new ApplicationException("Erro na geração da string sem acento.", new String[] { "Util.formataStringSemAcento" }, e);
+		
+		String in  = "ÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜáàãâäéèêëíìîïóòõôöúùûüçÇ";
+		String out = "AAAAAEEEEIIIIOOOOOUUUUaaaaaeeeeiiiiooooouuuucC";
+		StringBuffer textoFormatado = new StringBuffer();
+		for(int c=0; c< texto.length(); c++) {
+			char ch = texto.charAt(c);
+			int pos = in.indexOf(ch);
+			String cat = (pos == -1) ? String.valueOf(ch) : out.substring(pos, pos+1);
+			textoFormatado.append(cat);
 		}
+		return textoFormatado.toString();
 
 	}
 
@@ -922,7 +891,7 @@ public class Util {
 	 * @throws ApplicationException
 	 * @throws Exception 
 	 */
-	public static Date gerarObjetoDate(String data, String padrao) throws ApplicationException{
+/*	public static Date gerarObjetoDate(String data, String padrao) throws ApplicationException{
 
 		Date objeto = null;
 		if (StringUtils.isBlank(data) || StringUtils.isBlank(padrao)) {
@@ -934,7 +903,7 @@ public class Util {
 			throw new ApplicationException("Erro na geração do objeto Date.", new String[] { "Util.gerarObjetoDate" }, e);
 		}
 		return objeto;
-	}
+	}*/
 
 	/**
 	 * Retorna um objeto Date no formato 'dd/MM/yyyy HH:mm' a partir de uma String.<br>
@@ -946,7 +915,7 @@ public class Util {
 	 * @throws ApplicationException
 	 * @throws Exception 
 	 */
-	public static Date gerarObjetoDate(String data) throws ApplicationException{
+/*	public static Date gerarObjetoDate(String data) throws ApplicationException{
 
 		Date objeto = null;
 		if (StringUtils.isBlank(data)) {
@@ -958,7 +927,7 @@ public class Util {
 			throw new ApplicationException("Erro na geração do objeto Date.", new String[] { "Util.gerarObjetoDate" }, e);
 		}
 		return objeto;
-	}
+	}*/
 
 	/**
 	 * Converte um Set em Lista.<br>
@@ -1120,20 +1089,17 @@ public class Util {
 	 * @since 18/04/2012
 	 * @param numero
 	 * @return
+	 * @throws ParseException 
 	 * @throws ApplicationException 
 	 */
-	public static Double safeDouble(String numero) throws ApplicationException {
-		try {
-			if(numero!=null&&!"".equals(numero.trim())){
-				Locale brasil = new Locale ("pt", "BR");  
-				DecimalFormat df = new DecimalFormat ("#,##0.00", new DecimalFormatSymbols (brasil));  
-				df.setParseBigDecimal (true);  
-				
-				Number num = df.parse(numero);
-				return num.doubleValue();
-			}
-		} catch (ParseException e) {
-			throw new ApplicationException("mensagem.generica",new String[]{"O formato do n�mero informado est� inv�lido"});
+	public static Double safeDouble(String numero) throws ParseException {
+		if(numero!=null&&!"".equals(numero.trim())){
+			Locale brasil = new Locale ("pt", "BR");  
+			DecimalFormat df = new DecimalFormat ("#,##0.00", new DecimalFormatSymbols (brasil));  
+			df.setParseBigDecimal (true);  
+			
+			Number num = df.parse(numero);
+			return num.doubleValue();
 		}
 		return null;
 	}

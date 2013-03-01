@@ -21,7 +21,7 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 	private static Logger log = Logger.getLogger(ProtocoloMainFrameDAO.class);
 		
 	
-	public Collection<Protocolo> listar(ProtocoloDTO protocoloDTO) {
+	public Collection<Protocolo> listar(ProtocoloDTO protocoloDTO) throws Exception {
 
 		log.info("Procedimento listar protocolo processando...");
 		
@@ -103,7 +103,7 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 	}
 
 
-	public Protocolo obter(ProtocoloDTO param) {
+	public Protocolo obter(ProtocoloDTO param) throws Exception {
 		
 		log.info("*** Procedimento obter processando... ***");
 		
@@ -391,7 +391,9 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 
 			
 		} else {
-			throw new ApplicationException("AVISO.101", new String[]{ natural.getMSG() }, ApplicationException.ICON_AVISO);
+			//throw new ApplicationException("AVISO.101", new String[]{ natural.getMSG() }, ApplicationException.ICON_AVISO);
+			//MSG de Erro
+			parecerTramitacaoDTO = null;
 		}
 		
 		return parecerTramitacaoDTO;
