@@ -7,28 +7,46 @@
 
 	<ui:composition template="/pages/templates/ApplicationTemplate.xhtml">
 		<ui:define name="body">
-			
-			<h:form id="form1">
+
+			<div id="conteudo_corpo">
+							
+			<h:form id="formulario">
        
-	            <p:panelGrid columns="2"> 
-	                <f:facet name="header"> 
-	                    Setores 
-	                </f:facet> 
-	     
-	                <h:outputLabel for="codigo" value="Codigo: *" /> 
-	                <p:inputText id="codigo" value="" label="#{setorMB.codigo}" /> 
-	     
-	                <h:outputLabel for="descricao" value="Descrição *" /> 
-	                <p:inputText id="descricao" value="" required="true" label="#{setorMB.descricao}"/> 
-	     
-	                <f:facet name="footer"> 
-	                    <p:commandButton type="button" value="Consultar" icon="ui-icon-check" style="margin:0"/>
-	                    <!-- <p:commandButton value="Ajax Submit" update="tabela" id="ajax" actionListener="#{setorMB.listaSetores}" styleClass="ui-icon-check"/> -->
-	                    <h:commandButton value="Executar!" action="#{setorMB.listaSetores}">
-							<f:ajax render="form1:tabela"/>
-						</h:commandButton>
-	                </f:facet> 
-	            </p:panelGrid> 
+	             <p:panel header="Consulta Geral de Protocolos"> 
+		            	<h:panelGrid columns="2">
+		            	
+		            		<h:outputLabel for="numeroProtocolo" value="Número Protocolo" /> 
+			                <p:inputMask value="#{protocoloManagedBean.numeroProtocolo}" mask="99.999.999-9"/>
+		            	
+			                <h:outputLabel for="nomeInteressado" value="Interessado:" /> 
+		                	<p:selectOneMenu value="#{protocoloManagedBean.nomeInteressado}">  
+           						<f:selectItem itemLabel="Selecione" itemValue="" />  
+           						<f:selectItem itemLabel="Núcleo de Informática e Informações - NII"  itemValue="1"/> 
+           						<f:selectItem itemLabel="Direção Geral - DG" itemValue="1" />  
+            					<f:selectItem itemLabel="Núcleo de Convênios - NUCONV" itemValue="2" />  
+       						</p:selectOneMenu>
+
+							<h:outputText value="Data Inicial: " />  
+            				<p:inputMask value="#{protocoloManagedBean.dataInicial}" mask="99/99/9999"/>
+            				
+            				<h:outputText value="Data Final: " />  
+            				<p:inputMask value="#{protocoloManagedBean.dataFinal}" mask="99/99/9999"/>         						 
+			                 
+			     
+			                <h:outputLabel for="cidade" value="Cidade:" /> 
+			                <p:selectOneMenu value="#{protocoloManagedBean.cidade}">  
+           						<f:selectItem itemLabel="Selecione" itemValue="" />  
+           						<f:selectItem itemLabel="Curitiba"  itemValue="1"/> 
+           						<f:selectItem itemLabel="Maringá" itemValue="2" />  
+            					<f:selectItem itemLabel="Jandaia do Sul" itemValue="3" />  
+       						</p:selectOneMenu> 
+			     
+			                <h:outputLabel for="" value="" /> 
+			                <p:commandButton type="button" value="Consultar" icon="ui-icon-check" style="margin:0"/>
+			                
+			                 
+		                </h:panelGrid>
+	            </p:panel> 
 	       
 	              <br></br>
 	             
@@ -44,6 +62,7 @@
 	            </p:dataTable> 
 	        </h:form>  			
 			
+			</div>	
 			
 		</ui:define>
 	</ui:composition>

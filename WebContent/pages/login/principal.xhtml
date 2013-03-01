@@ -10,39 +10,10 @@
 			
 			<div id="conteudo_corpo">
 							
-			<h:form id="formulario">
-       
-	             <p:panel header="Consulta Geral de Protocolos"> 
-		            	<h:panelGrid columns="2">
-		            	
-			                <h:outputLabel for="codigo" value="Codigo:" /> 
-			                <p:inputText id="codigo" value="" label="#{setorMB.codigo}" /> 
-			     
-			                <h:outputLabel for="descricao" value="Descrição:" /> 
-			                <p:inputText id="descricao" value="" required="true" label="#{setorMB.descricao}"/> 
-			     
-			                <h:outputLabel for="" value="" /> 
-			                <p:commandButton type="button" value="Consultar" icon="ui-icon-check" style="margin:0"/>
-			                
-			                 
-		                </h:panelGrid>
-	            </p:panel> 
-	       
-	              <br></br>
-	             
-	            <p:dataTable id="tabela" var="setor" value="#{setorMB.listaSetores}"> 
-	                     
-	                <p:column headerText="Código"> 
-	                    <h:outputText value="#{setor.codigo}" /> 
-	                </p:column> 
-	         
-	                <p:column headerText="Descrição"> 
-	                    <h:outputText value="#{setor.descricao}" /> 
-	                </p:column> 
-	            </p:dataTable> 
-	        </h:form>  			
+				<h1>Bem-Vindo!!!</h1>
 			
 			</div>
+			
 		</ui:define>
 	</ui:composition>
 
