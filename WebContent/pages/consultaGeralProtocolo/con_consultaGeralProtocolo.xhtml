@@ -11,15 +11,21 @@
 			<div id="conteudo_corpo">
 							
 				<h:form>
-		             <p:panel header="Cadastro de Setores"> 
+		             <p:panel header="Consulta Geral de Protocolos"> 
 			            	<h:panelGrid columns="2">
 			            	
-			            		<h:outputLabel for="descricao" value="Descrição:" /> 
-				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50"/>
+			            		<h:outputLabel for="numeroProtocolo" value="Número Protocolo" /> 
+				                <p:inputMask id="numeroProtocolo" value="#{protocoloManagedBean.numeroProtocolo}" mask="99.999.999-9"/>
+			            	
+								<h:outputText value="Data Inicial: " />  
+	            				<p:inputMask value="#{protocoloManagedBean.dataInicial}" mask="99/99/9999"/>
+	            				
+	            				<h:outputText value="Data Final: " />  
+	            				<p:inputMask value="#{protocoloManagedBean.dataFinal}" mask="99/99/9999"/>         						 
 				                 
 				                <h:outputLabel for="" value="" /> 
 				                <h:commandButton value="Consultar">
-				                	<f:ajax  execute="descricao" render=":ajaxForm" listener="#{setorManagedBean.loadSetores}" />
+				                	<f:ajax  execute="numeroProtocolo" render=":ajaxForm" listener="#{protocoloManagedBean.consultar}" />
 				                </h:commandButton>
 				                
 			                </h:panelGrid>
@@ -30,12 +36,9 @@
 
 				<div id="tabContent">		        
 			        <h:form prependId="false" id="ajaxForm">
-		                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" rendered="#{setorManagedBean.setores != null}">  
-					        <p:column headerText="Código">  
-					            <h:outputText value="#{setor.codigo}" />  
-					        </p:column>
-					        <p:column headerText="Descrição">  
-					            <h:outputText value="#{setor.descricao}" />  
+		                <p:dataTable id="tabela" var="protocolo" value="#{protocoloManagedBean.listaProtocolos}" rendered="#{protocoloManagedBean.listaProtocolos != null}">  
+					        <p:column headerText="Número Protocolo">  
+					            <h:outputText value="#{protocolo.numeroProtocolo}" />  
 					        </p:column>  
 				    	</p:dataTable>  
 					</h:form>
