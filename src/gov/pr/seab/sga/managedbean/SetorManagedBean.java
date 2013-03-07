@@ -6,8 +6,12 @@ import gov.pr.seab.sga.facade.SetorFacade;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.persistence.PostLoad;
 
 @ViewScoped
 @ManagedBean
@@ -101,19 +105,29 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
  
     public List<Setor> getSetores() {
         if (setores == null) {
-            loadSetores();
+            loadSetores123();
         }
  
         return setores;
     }
  
-    private void loadSetores() {
+    private void loadSetores123() {
         //setores = getSetorFacade().listAll();
-    	if (getDescricao() != null) {
-    		Setor setorConsulta =  new Setor();
-    		setor.setDescricao(getSetor().getDescricao());
-    		setores = getSetorFacade().listarSetores(setorConsulta);
-    	}
+    	//if (getDescricao() != "") {
+    	//	Setor setorConsulta =  new Setor();
+    	//	setor.setDescricao(getSetor().getDescricao());
+    	//	setores = getSetorFacade().listarSetores(setorConsulta);
+    	//} else {
+    		//displayInfoMessageToUsuario("Nenhum registro encontrado.");
+    		//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Nenhum registro encontrado.", ""));
+    	//}
+    	//displayMessage();
+    	System.out.println("ta enrolado o negocio");
+    }
+    
+    public void displayMessage() {  
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Nenhum registro encontrado.", null);  
+        FacesContext.getCurrentInstance().addMessage(null, message);  
     }
  
     public void resetSetor() {

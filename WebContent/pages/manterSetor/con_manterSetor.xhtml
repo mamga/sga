@@ -16,21 +16,25 @@
 			            	
 			            		<h:outputLabel for="descricao" value="Descrição:" /> 
 				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50"/>
+				            </h:panelGrid>
+				            <br></br>
 				                 
-				                <h:outputLabel for="" value="" /> 
-				                <h:commandButton value="Consultar">
-				                	<f:ajax  execute="descricao" render=":ajaxForm" listener="#{setorManagedBean.loadSetores}" />
-				                </h:commandButton>
+				            <p:commandButton value="Consultar"
+				            				 actionListener="#{setorManagedBean.loadSetores123}" 
+                                             update=":ajaxForm" 
+                                             immediate="true"
+                                             />
 				                
-			                </h:panelGrid>
+			                
 		            </p:panel> 
 		        </h:form>  			
 
 	            <br></br>
 
-				<div id="tabContent">		        
-			        <h:form prependId="false" id="ajaxForm">
-		                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" rendered="#{setorManagedBean.setores != null}">  
+			<!-- <div id="tabContent">	 -->	        
+			        <!-- <h:form prependId="false" id="ajaxForm"> -->
+			        <h:panelGroup id="ajaxForm">
+		                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" rendered="true"> <!-- rendered="#{setorManagedBean.setores != null}" -->  
 					        <p:column headerText="Código">  
 					            <h:outputText value="#{setor.codigo}" />  
 					        </p:column>
@@ -38,9 +42,10 @@
 					            <h:outputText value="#{setor.descricao}" />  
 					        </p:column>  
 				    	</p:dataTable>  
-					</h:form>
-				</div>
-			</div>	
+				    </h:panelGroup>
+					<!-- </h:form> -->
+			<!-- </div> -->
+			</div>
 			
 		</ui:define>
 	</ui:composition>
@@ -48,7 +53,15 @@
 </ui:component>
 
 
-<!-- <h:outputLabel for="nomeInteressado" value="Interessado:" /> 
+<!-- 
+
+<h:outputLabel for="" value="" /> 
+				                <h:commandButton value="Consultar">
+				                	<f:ajax  execute="descricao" update=":ajaxForm" listener="#{setorManagedBean.loadSetores}" />
+				                </h:commandButton>
+				                
+
+<h:outputLabel for="nomeInteressado" value="Interessado:" /> 
 			                	<p:selectOneMenu value="#{protocoloManagedBean.nomeInteressado}">  
 	           						<f:selectItem itemLabel="Selecione" itemValue="" />  
 	           						<f:selectItem itemLabel="Núcleo de Informática e Informações - NII"  itemValue="1"/> 
