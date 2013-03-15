@@ -7,45 +7,49 @@
 
 	<ui:composition template="/pages/templates/ApplicationTemplate.xhtml">
 		<ui:define name="body">
-
+		
 			<div id="conteudo_corpo">
-							
+				<p:messages id="messages" autoUpdate="true" closable="true" />
 				<h:form>
-		             <p:panel header="Cadastro de Setores"> 
+		             <p:panel header="Cadastro de Setores" style="margin-bottom:10px;"> 
 			            	<h:panelGrid columns="2">
-			            	
 			            		<h:outputLabel for="descricao" value="Descrição:" /> 
-				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50"/>
+				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50" />
 				            </h:panelGrid>
 				            <br></br>
 				                 
 				            <p:commandButton value="Consultar"
-				            				 actionListener="#{setorManagedBean.loadSetores123}" 
+				            				 actionListener="#{setorManagedBean.loadSetores}" 
                                              update=":ajaxForm" 
                                              immediate="true"
+                                             icon="ui-icon-search"
                                              />
-				                
-			                
 		            </p:panel> 
 		        </h:form>  			
 
 	            <br></br>
 
-			<!-- <div id="tabContent">	 -->	        
-			        <!-- <h:form prependId="false" id="ajaxForm"> -->
-			        <h:panelGroup id="ajaxForm">
-		                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" rendered="true"> <!-- rendered="#{setorManagedBean.setores != null}" -->  
-					        <p:column headerText="Código">  
-					            <h:outputText value="#{setor.codigo}" />  
-					        </p:column>
-					        <p:column headerText="Descrição">  
-					            <h:outputText value="#{setor.descricao}" />  
-					        </p:column>  
-				    	</p:dataTable>  
-				    </h:panelGroup>
-					<!-- </h:form> -->
-			<!-- </div> -->
+		        <h:panelGroup id="ajaxForm">
+	                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="true"> <!-- rendered="#{setorManagedBean.setores != null}" -->  
+				        <p:column headerText="Código">  
+				            <h:outputText value="#{setor.codigo}" />  
+				        </p:column>
+				        <p:column headerText="Descrição">  
+				            <h:outputText value="#{setor.descricao}" />  
+				        </p:column>  
+			    	</p:dataTable>  
+			    </h:panelGroup>
+			    
 			</div>
+			
+			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
+    			<f:facet name="start">  
+        			<p:graphicImage value="/images/loading.gif" />  
+    			</f:facet>  
+  			    <f:facet name="complete">  
+        			<h:outputText value="" />  
+    			</f:facet>  
+			</p:ajaxStatus>  
 			
 		</ui:define>
 	</ui:composition>

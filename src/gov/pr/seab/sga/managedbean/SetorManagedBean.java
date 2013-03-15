@@ -11,7 +11,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.persistence.PostLoad;
 
 @ViewScoped
 @ManagedBean
@@ -61,68 +60,24 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
 		this.descricao = descricao;
 	}
 
-	public void createSetor() {
-        try {
-            getSetorFacade().createSetor(setor);
-            closeDialog();
-            displayInfoMessageToUsuario("Created With Sucess");
-            loadSetores();
-            resetSetor();
-        } catch (Exception e) {
-            keepDialogOpen();
-            displayErrorMessageToUsuario("Ops, we could not create. Try again later");
-            e.printStackTrace();
-        }
-    }
- 
-    public void updateSetor() {
-        try {
-            getSetorFacade().updateSetor(setor);
-            closeDialog();
-            displayInfoMessageToUsuario("Updated With Sucess");
-            loadSetores();
-            resetSetor();
-        } catch (Exception e) {
-            keepDialogOpen();
-            displayErrorMessageToUsuario("Ops, we could not create. Try again later");
-            e.printStackTrace();
-        }
-    }
- 
-    public void deleteSetor() {
-        try {
-            getSetorFacade().deleteSetor(setor);
-            closeDialog();
-            displayInfoMessageToUsuario("Deleted With Sucess");
-            loadSetores();
-            resetSetor();
-        } catch (Exception e) {
-            keepDialogOpen();
-            displayErrorMessageToUsuario("Ops, we could not create. Try again later");
-            e.printStackTrace();
-        }
-    }
- 
     public List<Setor> getSetores() {
         if (setores == null) {
-            loadSetores123();
+           // loadSetores();
         }
  
         return setores;
     }
- 
-    private void loadSetores123() {
-        //setores = getSetorFacade().listAll();
-    	//if (getDescricao() != "") {
-    	//	Setor setorConsulta =  new Setor();
-    	//	setor.setDescricao(getSetor().getDescricao());
-    	//	setores = getSetorFacade().listarSetores(setorConsulta);
-    	//} else {
-    		//displayInfoMessageToUsuario("Nenhum registro encontrado.");
-    		//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Nenhum registro encontrado.", ""));
-    	//}
-    	//displayMessage();
-    	System.out.println("ta enrolado o negocio");
+    
+    public void loadSetores(ActionEvent actionEvent) {
+        
+    	if (descricao != "") {
+    		Setor setorConsulta =  new Setor();
+    		setor.setDescricao(getSetor().getDescricao());
+    		setores = getSetorFacade().listarSetores(setorConsulta);
+    	} else {
+    		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Registro Encontrado."));
+    	}
+    	
     }
     
     public void displayMessage() {  
@@ -135,3 +90,47 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     }
 
 }
+
+/*
+
+public void createSetor() {
+    try {
+        getSetorFacade().createSetor(setor);
+        closeDialog();
+        displayInfoMessageToUsuario("Created With Sucess");
+        loadSetores();
+        resetSetor();
+    } catch (Exception e) {
+        keepDialogOpen();
+        displayErrorMessageToUsuario("Ops, we could not create. Try again later");
+        e.printStackTrace();
+    }
+}
+
+public void updateSetor() {
+    try {
+        getSetorFacade().updateSetor(setor);
+        closeDialog();
+        displayInfoMessageToUsuario("Updated With Sucess");
+        loadSetores();
+        resetSetor();
+    } catch (Exception e) {
+        keepDialogOpen();
+        displayErrorMessageToUsuario("Ops, we could not create. Try again later");
+        e.printStackTrace();
+    }
+}
+
+public void deleteSetor() {
+    try {
+        getSetorFacade().deleteSetor(setor);
+        closeDialog();
+        displayInfoMessageToUsuario("Deleted With Sucess");
+        loadSetores();
+        resetSetor();
+    } catch (Exception e) {
+        keepDialogOpen();
+        displayErrorMessageToUsuario("Ops, we could not create. Try again later");
+        e.printStackTrace();
+    }
+}*/
