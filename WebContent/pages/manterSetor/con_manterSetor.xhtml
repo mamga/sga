@@ -27,10 +27,10 @@
 		            </p:panel> 
 		        </h:form>  			
 
-	            <br></br>
+	
 
 		        <h:panelGroup id="ajaxForm">
-	                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="true"> <!-- rendered="#{setorManagedBean.setores != null}" -->  
+	                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="#{setorManagedBean.setores != null}"> <!-- rendered="true" -->  
 				        <p:column headerText="Código">  
 				            <h:outputText value="#{setor.codigo}" />  
 				        </p:column>

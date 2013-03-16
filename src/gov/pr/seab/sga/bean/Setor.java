@@ -16,7 +16,6 @@ public class Setor implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
-
 	private String descricao;
 
 	public Setor() {

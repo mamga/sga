@@ -70,24 +70,45 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     
     public void loadSetores(ActionEvent actionEvent) {
         
-    	if (descricao != "") {
-    		Setor setorConsulta =  new Setor();
-    		setor.setDescricao(getSetor().getDescricao());
-    		setores = getSetorFacade().listarSetores(setorConsulta);
-    	} else {
-    		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Registro Encontrado."));
-    	}
+    	setores = getSetorFacade().listarSetores(setor);
+    	
+    	//if (descricao != "") {
+    		//Setor setorConsulta =  new Setor();
+    		//setor.setDescricao(getSetor().getDescricao());
+    		//setores = getSetorFacade().listarSetores(setorConsulta);
+    		//setores = getSetorFacade().findAll();
+    	//} else {
+    		//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Nenhum Registro Encontrado."));
+    	//}
+    	
+    	//try {
+    		//setores = getSetorFacade().findAll();
+    	/*} catch (EJBException ejbException) {
+    		sendErrorMessageToUser("EJBException:" + ejbException);
+    	} catch (Exception exception) {
+    		sendErrorMessageToUser("Exception:" + exception);
+		}*/
     	
     }
     
-    public void displayMessage() {  
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Nenhum registro encontrado.", null);  
-        FacesContext.getCurrentInstance().addMessage(null, message);  
-    }
- 
     public void resetSetor() {
         setor = new Setor();
     }
+    
+    private void sendInfoMessageToUser(String message){
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
+	}
+	
+	private void sendErrorMessageToUser(String message){
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
+	}
+	
+	private FacesContext getContext() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		return context;
+	}
 
 }
 

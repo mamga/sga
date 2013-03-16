@@ -1,10 +1,41 @@
 package gov.pr.seab.sga.facade;
 
-import gov.pr.seab.sga.dao.SetorDAO;
 import gov.pr.seab.sga.bean.Setor;
+import gov.pr.seab.sga.dao.SetorDAO;
 
 import java.io.Serializable;
 import java.util.List;
+
+
+/*@Stateless
+public class SetorFacade {
+	
+	@EJB
+    private SetorDAO setorDAO;
+	
+    public void save(Setor setor) {
+        setorDAO.save(setor);
+    }
+ 
+    public Setor update(Setor setor) {
+        return setorDAO.update(setor);
+    }
+ 
+    public void delete(Setor setor) {
+        setorDAO.delete(setor);
+    }
+ 
+    public Setor find(int entityID) {
+        return setorDAO.find(entityID);
+    }
+ 
+    public List<Setor> findAll() {
+        return setorDAO.findAll();
+    }
+
+    
+}*/
+
 
 
  
@@ -49,7 +80,10 @@ public class SetorFacade implements Serializable{
     }
     
     public List<Setor> listarSetores(Setor setor) {
-    	return setorDAO.listar(setor);
+    	setorDAO.beginTransaction();
+    	List<Setor> lista = setorDAO.listar(setor);
+    	setorDAO.closeTransaction();
+    	return lista;
     }
     
 }
