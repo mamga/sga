@@ -10,37 +10,90 @@
 		
 			<div id="conteudo_corpo">
 				<p:messages id="messages" autoUpdate="true" closable="true" />
-				<h:form>
+				<h:form id="form">
+				
+				
+				
 		             <p:panel header="Cadastro de Setores" style="margin-bottom:10px;"> 
 			            	<h:panelGrid columns="2">
+			            		<h:outputLabel for="codigo" value="Código:" /> 
+				                <p:inputText id="codigo" value="#{setorManagedBean.codigo}" size="10" />
 			            		<h:outputLabel for="descricao" value="Descrição:" /> 
 				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50" />
 				            </h:panelGrid>
 				            <br></br>
-				                 
+
+							<p:separator></p:separator>
+							<center>				                 
 				            <p:commandButton value="Consultar"
 				            				 actionListener="#{setorManagedBean.loadSetores}" 
-                                             update=":ajaxForm" 
-                                             immediate="true"
+                                             update="ajaxForm" 
                                              icon="ui-icon-search"
+                                             process="@form"
                                              />
-		            </p:panel> 
+                    		</center>
+		            </p:panel>
+		            
+		            
+		            
+		            
+		            
+		            <h:panelGroup id="ajaxForm">
+		                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="#{setorManagedBean.setores != null}"> <!-- rendered="true" -->
+		                	<p:column style="width:4%" headerText="Exibir">  
+	                			<p:commandButton id="visualizar" update=":form:display" oncomplete="setorDialog.show()" icon="ui-icon-search" title="Visualizar">  
+	                				<f:setPropertyActionListener value="#{setor}" target="#{setor.setorSelecionado}" />  
+	            				</p:commandButton>  
+	        				</p:column>  
+					        <p:column style="width:10%" headerText="Código">  
+					            <h:outputText value="#{setor.codigo}" />  
+					        </p:column>
+					        <p:column headerText="Descrição">  
+					            <h:outputText value="#{setor.descricao}" />  
+					        </p:column>  
+					        <p:column style="width:4%" headerText="Editar">  
+	                			<p:commandButton id="editar" update="" oncomplete="" icon="ui-icon-pencil" title="Editar">  
+	                				<!-- <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" /> -->  
+	            				</p:commandButton>  
+	        				</p:column>  
+	        				<p:column style="width:4%" headerText="Excluir">  
+	                			<p:commandButton id="excluir" update="" oncomplete="" icon="ui-icon-trash" title="Excluir">  
+	                				<!-- <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" /> -->  
+	            				</p:commandButton>  
+	        				</p:column>  
+				    	</p:dataTable>  
+				    </h:panelGroup>
+			    
+			    
+			    		    
+			    
+			    
+				    <p:dialog header="Setor" widgetVar="setorDialog" resizable="false" id="setorDialog" showEffect="fade" hideEffect="fade" modal="true">  
+	  
+				        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto;">  
+				  
+				            <h:outputText value="Codigo:" />  
+				            <h:outputText value="#{setor.setorSelecionado.Codigo}" style="font-weight:bold"/>  
+				  
+				            <h:outputText value="Descrição:" />  
+				            <h:outputText value="#{setor.setorSelecionado.descricao}" style="font-weight:bold"/>  
+		
+				        </h:panelGrid>  
+			  
+			   		 </p:dialog>
+		            
+		            
+		            
+		            
+		            
+		             
 		        </h:form>  			
 
 	
 
-		        <h:panelGroup id="ajaxForm">
-	                <p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="#{setorManagedBean.setores != null}"> <!-- rendered="true" -->  
-				        <p:column headerText="Código">  
-				            <h:outputText value="#{setor.codigo}" />  
-				        </p:column>
-				        <p:column headerText="Descrição">  
-				            <h:outputText value="#{setor.descricao}" />  
-				        </p:column>  
-			    	</p:dataTable>  
-			    </h:panelGroup>
-			    
 			</div>
+			
+			
 			
 			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
     			<f:facet name="start">  
@@ -55,30 +108,3 @@
 	</ui:composition>
 
 </ui:component>
-
-
-<!-- 
-
-<h:outputLabel for="" value="" /> 
-				                <h:commandButton value="Consultar">
-				                	<f:ajax  execute="descricao" update=":ajaxForm" listener="#{setorManagedBean.loadSetores}" />
-				                </h:commandButton>
-				                
-
-<h:outputLabel for="nomeInteressado" value="Interessado:" /> 
-			                	<p:selectOneMenu value="#{protocoloManagedBean.nomeInteressado}">  
-	           						<f:selectItem itemLabel="Selecione" itemValue="" />  
-	           						<f:selectItem itemLabel="Núcleo de Informática e Informações - NII"  itemValue="1"/> 
-	           						<f:selectItem itemLabel="Direção Geral - DG" itemValue="1" />  
-	            					<f:selectItem itemLabel="Núcleo de Convênios - NUCONV" itemValue="2" />  
-	       						</p:selectOneMenu> -->
-
-	       						
-<!-- <h:outputLabel for="cidade" value="Cidade:" /> 
-				                <p:selectOneMenu value="#{protocoloManagedBean.cidade}">  
-	           						<f:selectItem itemLabel="Selecione" itemValue="" />  
-	           						<f:selectItem itemLabel="Curitiba"  itemValue="1"/> 
-	           						<f:selectItem itemLabel="Maringá" itemValue="2" />  
-	            					<f:selectItem itemLabel="Jandaia do Sul" itemValue="3" />  
-	            					
-	       						</p:selectOneMenu>  -->

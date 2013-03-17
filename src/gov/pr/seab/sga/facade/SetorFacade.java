@@ -80,9 +80,9 @@ public class SetorFacade implements Serializable{
     }
     
     public List<Setor> listarSetores(Setor setor) {
-    	setorDAO.beginTransaction();
+    	//setorDAO.beginTransaction();
     	List<Setor> lista = setorDAO.listar(setor);
-    	setorDAO.closeTransaction();
+    	//setorDAO.closeTransaction();
     	return lista;
     }
     

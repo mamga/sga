@@ -19,6 +19,7 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
 	private static final long serialVersionUID = 1L;
 	 
     private Setor setor;
+    private Setor setorSelecionado;
     private List<Setor> setores;
     private SetorFacade setorFacade;
     
@@ -44,7 +45,18 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
         this.setor = setor;
     }
  
-    public Integer getCodigo() {
+    public Setor getSetorSelecionado() {
+    	setorSelecionado = new Setor();
+    	setorSelecionado.setCodigo(30);
+    	setorSelecionado.setDescricao("Setor de Teste");
+		return setorSelecionado;
+	}
+
+	public void setSetorSelecionado(Setor setorSelecionado) {
+		this.setorSelecionado = setorSelecionado;
+	}
+
+	public Integer getCodigo() {
 		return codigo;
 	}
 
@@ -69,8 +81,17 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     }
     
     public void loadSetores(ActionEvent actionEvent) {
-        
+    	
+    	getSetor().setCodigo(codigo);
+    	getSetor().setDescricao(descricao);
+    	        
     	setores = getSetorFacade().listarSetores(setor);
+    	
+    	if (setores.isEmpty()) {
+    		setores = null;
+    		sendInfoMessageToUser("Nenhum Registro Encontrado.");
+    	}
+    	
     	
     	//if (descricao != "") {
     		//Setor setorConsulta =  new Setor();

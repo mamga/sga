@@ -88,9 +88,19 @@ import javax.persistence.criteria.CriteriaQuery;
 public abstract class GenericDAO<T> implements Serializable {
     private static final long serialVersionUID = 1L;
  
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("sgaseab");
-    EntityManager em;
- 
+    protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("sgaseab");
+    protected EntityManager em;
+       
+
+    /*protected EntityManagerFactory getEntityManagerFactory() {
+        return emf;
+    }
+    
+    protected EntityManager getEntityManager() {
+        return em;
+    }*/
+    
+     
     private Class<T> entityClass;
  
     public void beginTransaction() {
