@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<p:dialog header="Setor" widgetVar="createSetorDialog" resizable="false" id="createSetorDialog" showEffect="fade" hideEffect="fade" modal="true">
+		<h:form id="createManterSetorDialogForm" prependId="false">
+		    <h:panelGrid id="displayCreate" columns="2" cellpadding="4" style="margin:0 auto;">  
+		    	  
+		        <h:outputText value="* Descrição:" />  
+		        <h:inputText value="#{setorManagedBean.descricao}" required="true" label="Descrição do Setor"/>
+		        
+		        <p:commandButton value="Incluir" icon="ui-icon-plus"
+					action="#{setorManagedBean.createSetor}"
+					update=":dataTableManterSetor :form"
+					oncomplete="closeDialogIfSucess(xhr, status, args, createSetorDialog 'createSetorDialog')" />
+				<p:commandButton value="Cancelar" icon="ui-icon-cancel" actionListener="#{setorManagedBean.resetSetor}"
+					onclick="createSetorDialog.hide();" type="button" />
+		        
+		    </h:panelGrid>  
+		</h:form>
+	</p:dialog>
+
+
+
+</h:body>
+</html>

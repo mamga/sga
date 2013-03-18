@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<h:panelGroup id="dataTableManterSetor">
+		<p:dataTable id="tabela" var="setor" value="#{setorManagedBean.setores}" emptyMessage="Nenhum Registro" rendered="#{setorManagedBean.setores != null}"> <!-- rendered="true" -->
+	    	<p:column style="width:4%" headerText="Exibir">  
+	        	<p:commandButton id="visualizar" update=":viewManterSetorDialogForm" oncomplete="viewSetorDialog.show()" icon="ui-icon-bullet" title="Visualizar">  
+	        		<f:setPropertyActionListener value="#{setor}" target="#{setorManagedBean.setorSelecionado}" />  
+	    		</p:commandButton>  
+			</p:column>  
+	    	<p:column style="width:10%" headerText="Código">  
+	        	<h:outputText value="#{setor.codigo}" />  
+	    	</p:column>
+	    	<p:column headerText="Descrição">  
+	        	<h:outputText value="#{setor.descricao}" />  
+	    	</p:column>  
+	    	<p:column style="width:4%" headerText="Editar">  
+	        	<p:commandButton id="editar" update="" oncomplete="" icon="ui-icon-pencil" title="Editar">  
+	        		<!-- <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" /> -->  
+	    		</p:commandButton>  
+			</p:column>  
+			<p:column style="width:4%" headerText="Excluir">  
+	        	<p:commandButton id="excluir" update="" oncomplete="" icon="ui-icon-trash" title="Excluir">  
+	        	<!-- <f:setPropertyActionListener value="#{car}" target="#{tableBean.selectedCar}" /> -->  
+	     		</p:commandButton>  
+	 		</p:column>  
+		</p:dataTable>  
+	</h:panelGroup>
+
+
+</h:body>
+</html>

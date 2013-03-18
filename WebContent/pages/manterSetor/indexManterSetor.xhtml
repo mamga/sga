@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/pages/templates/ApplicationTemplate.xhtml">
+		<ui:define name="body">
+		
+			<div id="conteudo_corpo">
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+				<h:form id="form">
+				
+		             <p:panel header="Cadastro de Setores" style="margin-bottom:10px;"> 
+			            	<h:panelGrid columns="2">
+			            		<h:outputLabel for="codigo" value="Código:" /> 
+				                <p:inputText id="codigo" value="#{setorManagedBean.codigo}" size="10" />
+			            		<h:outputLabel for="descricao" value="Descrição:" /> 
+				                <p:inputText id="descricao" value="#{setorManagedBean.descricao}" size="50" />
+				            </h:panelGrid>
+				            <br></br>
+
+							<p:separator></p:separator>
+							<center>				                 
+				            <p:commandButton value="Consultar"
+				            				 actionListener="#{setorManagedBean.loadSetores}" 
+                                             update=":dataTableManterSetor" 
+                                             icon="ui-icon-search"
+                                             process="@form"
+                                             />
+                            
+                            <p:commandButton value="Novo"
+                                             update=":createManterSetorDialogForm" 
+                                             icon="ui-icon-plus"
+											 oncomplete="createSetorDialog.show();"                                            
+                                             />
+                    		
+                    		</center>
+                    		
+		            </p:panel>
+		        </h:form>
+		        
+		        <ui:include src="/pages/manterSetor/dataTableManterSetor.xhtml" />
+		        <ui:include src="/pages/manterSetor/createManterSetorDialog.xhtml" />
+		        <ui:include src="/pages/manterSetor/viewManterSetorDialog.xhtml" />  
+
+			</div>
+			
+			
+			<p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
+    			<f:facet name="start">  
+        			<p:graphicImage value="/images/loading.gif" />  
+    			</f:facet>  
+  
+    			<f:facet name="complete">  
+        			<h:outputText value="" />  
+    			</f:facet>  
+			</p:ajaxStatus> 
+						
+		</ui:define>
+	</ui:composition>
+
+</ui:component>

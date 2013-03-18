@@ -46,9 +46,6 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     }
  
     public Setor getSetorSelecionado() {
-    	setorSelecionado = new Setor();
-    	setorSelecionado.setCodigo(30);
-    	setorSelecionado.setDescricao("Setor de Teste");
 		return setorSelecionado;
 	}
 
@@ -73,23 +70,48 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
 	}
 
     public List<Setor> getSetores() {
-        if (setores == null) {
-           // loadSetores();
-        }
+        /*if (setores == null) {
+        	setores = getSetorFacade().listarSetores(setor);
+        }*/
  
         return setores;
     }
     
-    public void loadSetores(ActionEvent actionEvent) {
-    	
+    public void listarSetores() {
     	getSetor().setCodigo(codigo);
     	getSetor().setDescricao(descricao);
-    	        
     	setores = getSetorFacade().listarSetores(setor);
+    }
+    
+    public void createSetor() {
+        try {
+        	getSetor().setDescricao(descricao);
+        	
+            getSetorFacade().createSetor(setor);
+            closeDialog();
+            displayInfoMessageToUsuario("Setor Cadastrado com Sucesso");
+            listarSetores();
+            resetSetor();
+        } catch (Exception e) {
+            keepDialogOpen();
+            displayErrorMessageToUsuario("Erro ao cadastrar Setor. Causa: " + e);
+            e.printStackTrace();
+        }
+    }
+    
+    public void loadSetores(ActionEvent actionEvent) {
+    	
+    	/*getSetor().setCodigo(codigo);
+    	getSetor().setDescricao(descricao);
+    	        
+    	setores = getSetorFacade().listarSetores(setor);*/
+    	
+    	listarSetores();
     	
     	if (setores.isEmpty()) {
     		setores = null;
-    		sendInfoMessageToUser("Nenhum Registro Encontrado.");
+    		//sendInfoMessageToUser("Nenhum Registro Encontrado.");
+    		displayInfoMessageToUsuario("Nenhum Registro Encontrado.");
     	}
     	
     	
@@ -116,7 +138,7 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
         setor = new Setor();
     }
     
-    private void sendInfoMessageToUser(String message){
+    /*private void sendInfoMessageToUser(String message){
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
 	}
@@ -129,7 +151,7 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
 	private FacesContext getContext() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
-	}
+	}*/
 
 }
 
