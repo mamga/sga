@@ -99,6 +99,16 @@
 		<artifactId>hibernate</artifactId>
 		<version>3.2.6.ga</version>
 	</dependency>
+	<dependency>
+		<groupId>net.sf.jasperreports</groupId>
+		<artifactId>jasperreports</artifactId>
+		<version>5.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-collections</groupId>
+		<artifactId>commons-collections</artifactId>
+		<version>20040616</version>
+	</dependency>
             
   </dependencies>
 </project>

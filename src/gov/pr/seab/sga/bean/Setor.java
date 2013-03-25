@@ -14,9 +14,13 @@ public class Setor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@SequenceGenerator(name="TB_SETOR_CODIGO_GENERATOR", sequenceName="TB_SETOR_CODIGO_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TB_SETOR_CODIGO_GENERATOR")
 	private Integer codigo;
+
 	private String descricao;
+
+	private String sigla;
 
 	public Setor() {
 	}
@@ -35,6 +39,14 @@ public class Setor implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getSigla() {
+		return this.sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 }

@@ -25,6 +25,7 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     
     private Integer codigo;
     private String descricao;
+    private String sigla;
  
     public SetorFacade getSetorFacade() {
         if (setorFacade == null) {
@@ -69,7 +70,15 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
 		this.descricao = descricao;
 	}
 
-    public List<Setor> getSetores() {
+    public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public List<Setor> getSetores() {
         /*if (setores == null) {
         	setores = getSetorFacade().listarSetores(setor);
         }*/
@@ -79,12 +88,15 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     
     public void listarSetores() {
     	getSetor().setCodigo(codigo);
+    	getSetor().setSigla(sigla);
     	getSetor().setDescricao(descricao);
     	setores = getSetorFacade().listarSetores(setor);
     }
     
     public void createSetor() {
         try {
+        	getSetor().setCodigo(null);
+        	getSetor().setSigla(sigla);
         	getSetor().setDescricao(descricao);
         	
             getSetorFacade().createSetor(setor);
@@ -135,6 +147,10 @@ public class SetorManagedBean extends AbstractManagedBean implements Serializabl
     }
     
     public void resetSetor() {
+    	setCodigo(null);
+    	setSigla(null);
+    	setDescricao(null);
+    	
         setor = new Setor();
     }
     

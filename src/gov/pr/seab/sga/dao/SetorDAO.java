@@ -55,6 +55,9 @@ public class SetorDAO extends GenericDAO<Setor> {
 			if ((setor.getCodigo() != null) && (setor.getCodigo() != 0)) {
 				predicates.add(criteriaBuilder.equal(root.<Integer>get("codigo"), setor.getCodigo()));
 			}
+			if ((setor.getSigla() != null) && (setor.getSigla() != "")) {
+				predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.<String>get("sigla")), "%" + setor.getSigla().toLowerCase() + "%"));
+			}
 			if ((setor.getDescricao() != null) && (setor.getDescricao() != "")){
 				predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.<String>get("descricao")), "%" + setor.getDescricao().toLowerCase() + "%"));
 			}

@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -10,6 +11,8 @@
 		<h:form id="createManterSetorDialogForm" prependId="false">
 		    <h:panelGrid id="displayCreate" columns="2" cellpadding="4" style="margin:0 auto;">  
 		    	  
+		        <h:outputText value="* Sigla:" />  
+		        <h:inputText value="#{setorManagedBean.sigla}" required="true" label="Sigla do Setor"/>
 		        <h:outputText value="* Descrição:" />  
 		        <h:inputText value="#{setorManagedBean.descricao}" required="true" label="Descrição do Setor"/>
 		        
