@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @ViewScoped
@@ -74,49 +76,27 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	
 	
 	
-	
 
-	@PostConstruct
-    public void construct(){            
-    }
-    
-    protected void redirect(String page){
-
-        FacesContext ctx = FacesContext.getCurrentInstance();
-        ExternalContext ec = ctx.getExternalContext();
+	public void gerarRelatorioTeste () throws IOException, JRException {
+		
+        List<Setor> listaSetor = new ArrayList<Setor>();
+        Setor setor = new Setor();
+        setor.setDescricao("Descricao");
+        setor.setSigla("Sigla");
         
-        try {
-            ec.redirect(ec.getRequestContextPath() + page);
-        } catch (IOException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), ex.getMessage()));
-        }
+        listaSetor.add(setor);
         
-    }
-    
-    public void imprimirRelatorio() throws Exception{  
-
-         try
-         {                                         
-             
-            List<Setor> listaSetor = new ArrayList<Setor>();
-            
-            Setor setor = new Setor();
-            setor.setDescricao("Descricao");
-            setor.setSigla("Sigla");
-            
-            listaSetor.add(setor);
- 
-            FacesContext ctx = FacesContext.getCurrentInstance();
-            HttpSession session = (HttpSession) ctx.getExternalContext().getSession(false);                         
-            session.setAttribute("listaSetor", listaSetor);
-            session.setAttribute("relatorio", "etoqueta.jasper");
-            redirect("/ExemploRelatorioServlet");
-            
-         }catch(Exception ex){
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), ex.getMessage()));   
-         }         
-    }   
-	
+                
+        JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(listaSetor);
+        String reportPath = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/relatorios/etiqueta.jasper");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, new HashMap(), beanCollectionDataSource);
+        HttpServletResponse httpServletResponse = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+        httpServletResponse.addHeader("Content-disposition", "attachment; filename=etiqueta.pdf");
+        ServletOutputStream servletOutputStream = httpServletResponse.getOutputStream();
+        JasperExportManager.exportReportToPdfStream(jasperPrint, servletOutputStream);
+        FacesContext.getCurrentInstance().responseComplete();
+		
+	}
 	
 
 }
