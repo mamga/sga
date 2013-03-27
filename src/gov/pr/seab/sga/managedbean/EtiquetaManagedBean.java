@@ -81,8 +81,8 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 		
         List<Setor> listaSetor = new ArrayList<Setor>();
         Setor setor = new Setor();
-        setor.setDescricao("Descricao");
-        setor.setSigla("Sigla");
+        setor.setDescricao("Informática");
+        setor.setSigla("NII");
         
         listaSetor.add(setor);
         

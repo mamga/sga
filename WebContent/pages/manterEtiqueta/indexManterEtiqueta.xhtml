@@ -14,6 +14,7 @@
 				
 		             <p:panel header="Impressão de Etiquetas - AAX" style="margin-bottom:10px;"> 
 			            	<h:panelGrid columns="2">
+			            	
 			            		<!-- <h:outputLabel for="etiqueta1" value="Etiqueta Posição 1:" /> 
 				                <p:inputMask id="etiqueta1" value="#{etiquetaManagedBean.numeroProtocoloEtiquetaPos1}"  mask="99.999.999-9" />
 				                <h:outputLabel for="etiqueta2" value="Etiqueta Posição 2:" /> 
@@ -30,15 +31,8 @@
 
 							<p:separator></p:separator>
 							<center>				                 
-				            <p:commandButton value="Gerar Arquivo para Impressão"
-				            				 actionListener="#{etiquetaManagedBean.gerarArquivoImpressao}" 
-                                             update="form" 
-                                             icon="ui-icon-search"
-                                             process="@form"
-                                             ajax="false"
-                                             />
-                                             
-                            <p:commandButton value="Gerar Arquivo para Impressão - TESTE"
+				                                                         
+                            <p:commandButton value="Gerar Arquivo para Impressão"
 				            				 actionListener="#{etiquetaManagedBean.gerarRelatorioTeste}" 
                                              update="form" 
                                              icon="ui-icon-search"

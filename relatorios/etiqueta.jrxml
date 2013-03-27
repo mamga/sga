@@ -3,40 +3,27 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<subDataset name="New Dataset 1" uuid="47f96db3-f294-4e95-9216-61b67011b12d"/>
 	<title>
-		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="18b865ed-8e2d-487a-a5e8-a3d24f8ddfb6" x="0" y="20" width="555" height="44"/>
-				<textElement textAlignment="Center">
-					<font size="36"/>
-				</textElement>
-				<text><![CDATA[RELATÓRIO DE TESTE]]></text>
-			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="271" splitType="Stretch">
 			<rectangle>
-				<reportElement uuid="f5961f23-890c-49a8-9b26-dec47c57d03a" x="0" y="0" width="555" height="125"/>
+				<reportElement uuid="0c256970-3b85-452b-a633-cb606bf39854" x="6" y="0" width="546" height="60"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1e702df5-b1e8-434e-a91b-68c5efecd537" x="6" y="71" width="546" height="60"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="6fe187bb-7102-4294-bce3-7d67777df533" mode="Opaque" x="6" y="149" width="546" height="60"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
 			</rectangle>
 		</band>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
+	</title>
 </jasperReport>
