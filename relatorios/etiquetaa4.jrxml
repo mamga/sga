@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetaa4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50b0ebd1-2722-44bd-8485-58d68f9f6956">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="a671b416-416e-4986-9dc5-307a9191a908" x="27" y="52" width="500" height="140"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="4193a28d-40e3-4f5a-8a1f-498dd45fef22" x="27" y="191" width="500" height="140"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="dc85ed94-8064-47f2-a81c-3b6f70387bef" x="27" y="470" width="500" height="140"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="a2751221-6b80-4f56-a03a-65080051e1af" x="27" y="331" width="500" height="140"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="b26fa728-7b22-484f-b789-cd16fa2fc60b" x="27" y="609" width="500" height="140"/>
+			</rectangle>
+		</band>
+	</title>
+</jasperReport>

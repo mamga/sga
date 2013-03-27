@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiqueta" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0a4bcb8-b341-4d3a-9859-ddd9fd51e3ba">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiqueta" pageWidth="596" pageHeight="823" columnWidth="500" leftMargin="48" rightMargin="48" topMargin="48" bottomMargin="70" uuid="b0a4bcb8-b341-4d3a-9859-ddd9fd51e3ba">
+	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<subDataset name="New Dataset 1" uuid="47f96db3-f294-4e95-9216-61b67011b12d"/>
 	<title>
-		<band height="271" splitType="Stretch">
+		<band height="705" splitType="Stretch">
 			<rectangle>
-				<reportElement uuid="0c256970-3b85-452b-a633-cb606bf39854" x="6" y="0" width="546" height="60"/>
+				<reportElement uuid="0c256970-3b85-452b-a633-cb606bf39854" x="0" y="0" width="500" height="140"/>
 				<graphicElement>
 					<pen lineWidth="0.25"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1e702df5-b1e8-434e-a91b-68c5efecd537" x="6" y="71" width="546" height="60"/>
+				<reportElement uuid="2f741244-e792-48c0-9419-2ed5b9a0f1c3" x="0" y="140" width="500" height="140"/>
 				<graphicElement>
 					<pen lineWidth="0.25"/>
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="6fe187bb-7102-4294-bce3-7d67777df533" mode="Opaque" x="6" y="149" width="546" height="60"/>
+				<reportElement uuid="74d42f23-d700-4cc0-99b0-49fc9a462f06" x="0" y="280" width="500" height="140"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="da88ab13-1af9-45c8-8235-737653d2d389" x="0" y="420" width="500" height="140"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="0b7f7eb4-bb1c-4c10-9222-550800bd92b9" x="0" y="560" width="500" height="140"/>
 				<graphicElement>
 					<pen lineWidth="0.25"/>
 				</graphicElement>
