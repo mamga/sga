@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetaa4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50b0ebd1-2722-44bd-8485-58d68f9f6956">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="293"/>
+	<property name="ireport.y" value="233"/>
+	<field name="orgaoEtiqueta1" class="java.lang.String"/>
+	<field name="dataCadastroEtiqueta1" class="java.lang.String"/>
+	<field name="numeroProtocoloEtiqueta1" class="java.lang.String"/>
+	<field name="nomeInteressado1Etiqueta1" class="java.lang.String"/>
+	<field name="nomeInteressado2Etiqueta1" class="java.lang.String"/>
+	<field name="assuntoEtiqueta1" class="java.lang.String"/>
+	<field name="municipioEtiqueta1" class="java.lang.String"/>
+	<field name="palavraChaveEtiqueta1" class="java.lang.String"/>
+	<field name="documentoEtiqueta1" class="java.lang.String"/>
+	<field name="origemEtiqueta1" class="java.lang.String"/>
+	<field name="assuntoComplementoEtiqueta1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="802" splitType="Stretch">
 			<rectangle>
-				<reportElement uuid="a671b416-416e-4986-9dc5-307a9191a908" x="27" y="52" width="500" height="140"/>
+				<reportElement uuid="a671b416-416e-4986-9dc5-307a9191a908" mode="Transparent" x="27" y="52" width="500" height="140"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="4193a28d-40e3-4f5a-8a1f-498dd45fef22" x="27" y="191" width="500" height="140"/>
@@ -23,6 +34,73 @@
 			<rectangle>
 				<reportElement uuid="b26fa728-7b22-484f-b789-cd16fa2fc60b" x="27" y="609" width="500" height="140"/>
 			</rectangle>
+			<textField>
+				<reportElement uuid="7ad31eee-8f35-4b04-9283-55d0aaf49427" x="55" y="76" width="129" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orgaoEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dccd3c83-d3b8-43a5-9647-c712b62ce7d3" x="174" y="77" width="166" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastroEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4af71f63-f82d-42c7-9f35-5d64dd415858" x="367" y="62" width="133" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroProtocoloEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ef10a407-eefd-4173-9131-8d179d92e994" x="55" y="90" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado1Etiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a95bf680-7ab2-41c4-8513-ad7a47e8e51a" x="317" y="90" width="183" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado2Etiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2a4a69f6-69dd-4909-b7a4-bd5565e6b93d" x="55" y="104" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assuntoEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5049e229-61b8-4bdc-af4b-cb041c47f4d8" x="317" y="104" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{municipioEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ea055b69-81bf-44e9-951b-d45cd021c6f5" x="55" y="118" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{palavraChaveEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b2b83973-2fa1-4605-970d-ac3042539409" x="55" y="132" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{documentoEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f07b687c-8e3f-4ec7-a795-480a791bd25d" x="317" y="132" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{origemEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e908c225-4efa-4d15-819f-f09d80a9750e" x="55" y="146" width="445" height="28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta1}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 </jasperReport>
