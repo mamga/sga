@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetaa4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50b0ebd1-2722-44bd-8485-58d68f9f6956">
-	<property name="ireport.zoom" value="3.0"/>
-	<property name="ireport.x" value="293"/>
-	<property name="ireport.y" value="233"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="143"/>
 	<field name="orgaoEtiqueta1" class="java.lang.String"/>
 	<field name="dataCadastroEtiqueta1" class="java.lang.String"/>
 	<field name="numeroProtocoloEtiqueta1" class="java.lang.String"/>
@@ -14,13 +14,24 @@
 	<field name="documentoEtiqueta1" class="java.lang.String"/>
 	<field name="origemEtiqueta1" class="java.lang.String"/>
 	<field name="assuntoComplementoEtiqueta1" class="java.lang.String"/>
+	<field name="orgaoEtiqueta2" class="java.lang.String"/>
+	<field name="dataCadastroEtiqueta2" class="java.lang.String"/>
+	<field name="numeroProtocoloEtiqueta2" class="java.lang.String"/>
+	<field name="nomeInteressado1Etiqueta2" class="java.lang.String"/>
+	<field name="nomeInteressado2Etiqueta2" class="java.lang.String"/>
+	<field name="assuntoEtiqueta2" class="java.lang.String"/>
+	<field name="municipioEtiqueta2" class="java.lang.String"/>
+	<field name="palavraChaveEtiqueta2" class="java.lang.String"/>
+	<field name="documentoEtiqueta2" class="java.lang.String"/>
+	<field name="origemEtiqueta2" class="java.lang.String"/>
+	<field name="assuntoComplementoEtiqueta2" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="802" splitType="Stretch">
 			<rectangle>
-				<reportElement uuid="a671b416-416e-4986-9dc5-307a9191a908" mode="Transparent" x="27" y="52" width="500" height="140"/>
+				<reportElement uuid="a671b416-416e-4986-9dc5-307a9191a908" mode="Transparent" x="27" y="51" width="500" height="140"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="4193a28d-40e3-4f5a-8a1f-498dd45fef22" x="27" y="191" width="500" height="140"/>
@@ -42,7 +53,7 @@
 				<textFieldExpression><![CDATA[$F{orgaoEtiqueta1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="dccd3c83-d3b8-43a5-9647-c712b62ce7d3" x="174" y="77" width="166" height="13"/>
+				<reportElement uuid="dccd3c83-d3b8-43a5-9647-c712b62ce7d3" x="174" y="76" width="166" height="13"/>
 				<textElement markup="html">
 					<font size="10"/>
 				</textElement>
@@ -100,6 +111,73 @@
 				<reportElement uuid="e908c225-4efa-4d15-819f-f09d80a9750e" x="55" y="146" width="445" height="28"/>
 				<textElement markup="html"/>
 				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fe792659-1fa7-482e-b865-b1e0bf8dbf7d" x="55" y="260" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{palavraChaveEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0cb8ab6a-470e-4d8f-9b84-406db505cc0b" x="317" y="246" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{municipioEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d88143d1-f1b2-4575-8e3c-9288fc275774" x="55" y="218" width="129" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orgaoEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ee7575da-41f6-4693-9630-046e33b13652" x="55" y="232" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado1Etiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a67cecad-310e-43c5-9477-7752e5a7295c" x="55" y="246" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assuntoEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="929a07a8-dbda-422c-a2d3-cb1bb473419a" x="317" y="274" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{origemEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0e1bf336-1973-4dbe-a2d0-2f2fbe641950" x="174" y="218" width="166" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastroEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="230892bc-3f34-4a22-8851-b92d6a171b80" x="317" y="232" width="183" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado2Etiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="35d65a8c-dc12-4f34-b56e-8568428ce241" x="55" y="274" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{documentoEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8d284c5d-1075-437d-bc4e-a90afbd26999" x="367" y="204" width="133" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroProtocoloEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="29e74163-d73f-4979-8ad6-bde90c337789" x="55" y="288" width="445" height="28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta2}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

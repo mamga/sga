@@ -85,7 +85,8 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        ProtocoloDTO protocoloDTO = null;
 	        EtiquetaDTO etiqueta = null;
 	        
-	        if ((numeroProtocoloEtiqueta1 != null) || (numeroProtocoloEtiqueta1 != "")) {
+	        //Etiqueta 1
+	        if (numeroProtocoloEtiqueta1 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
 	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta1);
 	        	
@@ -93,7 +94,7 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	
 	        	protocolo = new Protocolo();
 	        	protocolo.setDataCadastro("01/01/1950 10:50");
-	        	protocolo.setNumeroProtocolo("11.399.905-5");
+	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta1);
 	        	protocolo.setInteressadoNome1("Nome Interessado 1");
 	        	protocolo.setInteressadoNome2("Nome Interessado 2");
 	        	protocolo.setAssunto("Assunto Etiqueta 1");
@@ -125,9 +126,181 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta1 + " não encontrado." );
 	        	}
-	        	
-	        	
 	        }
+	        
+	        //Etiqueta 2
+	        if (numeroProtocoloEtiqueta2 != "") {
+	        	protocoloDTO = new ProtocoloDTO();
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta2);
+	        	
+	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+	        	
+	        	protocolo = new Protocolo();
+	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta2);
+	        	protocolo.setInteressadoNome1("Nome Interessado 1");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2");
+	        	protocolo.setAssunto("Assunto Etiqueta 2");
+	        	protocolo.setCidade("Curitiba");
+	        	protocolo.setOrigem("Prefeitura");
+	        	protocolo.setPalavra1("Palavra Chave 1");
+	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setNumeroDocumento("009");
+	        	protocolo.setAnoDocumento("2013");
+	        	
+	        	
+	        	
+	        	if (protocolo != null) {
+	        		etiqueta = new EtiquetaDTO();
+	        		etiqueta.setOrgaoEtiqueta2("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setDataCadastroEtiqueta2("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setNumeroProtocoloEtiqueta2(protocolo.getNumeroProtocolo());
+	        		etiqueta.setNomeInteressado1Etiqueta2("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
+	        		etiqueta.setNomeInteressado2Etiqueta2("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
+	        		etiqueta.setAssuntoEtiqueta2("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setMunicipioEtiqueta2("<b>Cidade:</b> " + protocolo.getCidade());
+	        		etiqueta.setOrigemEtiqueta2("<b>Origem:</b> " + protocolo.getOrigem());
+	        		etiqueta.setPalavraChaveEtiqueta2("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
+	        		etiqueta.setDocumentoEtiqueta2("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setAssuntoComplementoEtiqueta2("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		listaEtiqueta.add(etiqueta);
+	        		
+	        	} else {
+	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta2 + " não encontrado." );
+	        	}
+	        }
+	        
+	      //Etiqueta 3
+	        if (numeroProtocoloEtiqueta3 != "") {
+	        	protocoloDTO = new ProtocoloDTO();
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta3);
+	        	
+	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+	        	
+	        	protocolo = new Protocolo();
+	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta3);
+	        	protocolo.setInteressadoNome1("Nome Interessado 1");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2");
+	        	protocolo.setAssunto("Assunto Etiqueta 2");
+	        	protocolo.setCidade("Curitiba");
+	        	protocolo.setOrigem("Prefeitura");
+	        	protocolo.setPalavra1("Palavra Chave 1");
+	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setNumeroDocumento("009");
+	        	protocolo.setAnoDocumento("2013");
+	        	
+	        	
+	        	
+	        	if (protocolo != null) {
+	        		etiqueta = new EtiquetaDTO();
+	        		etiqueta.setOrgaoEtiqueta3("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setDataCadastroEtiqueta3("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setNumeroProtocoloEtiqueta3(protocolo.getNumeroProtocolo());
+	        		etiqueta.setNomeInteressado1Etiqueta3("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
+	        		etiqueta.setNomeInteressado2Etiqueta3("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
+	        		etiqueta.setAssuntoEtiqueta3("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setMunicipioEtiqueta3("<b>Cidade:</b> " + protocolo.getCidade());
+	        		etiqueta.setOrigemEtiqueta3("<b>Origem:</b> " + protocolo.getOrigem());
+	        		etiqueta.setPalavraChaveEtiqueta3("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
+	        		etiqueta.setDocumentoEtiqueta3("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setAssuntoComplementoEtiqueta3("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		listaEtiqueta.add(etiqueta);
+	        		
+	        	} else {
+	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta3 + " não encontrado." );
+	        	}
+	        }
+	        
+	      //Etiqueta 4
+	        if (numeroProtocoloEtiqueta4 != "") {
+	        	protocoloDTO = new ProtocoloDTO();
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta4);
+	        	
+	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+	        	
+	        	protocolo = new Protocolo();
+	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta4);
+	        	protocolo.setInteressadoNome1("Nome Interessado 1");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2");
+	        	protocolo.setAssunto("Assunto Etiqueta 2");
+	        	protocolo.setCidade("Curitiba");
+	        	protocolo.setOrigem("Prefeitura");
+	        	protocolo.setPalavra1("Palavra Chave 1");
+	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setNumeroDocumento("009");
+	        	protocolo.setAnoDocumento("2013");
+	        	
+	        	
+	        	
+	        	if (protocolo != null) {
+	        		etiqueta = new EtiquetaDTO();
+	        		etiqueta.setOrgaoEtiqueta4("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setDataCadastroEtiqueta4("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setNumeroProtocoloEtiqueta4(protocolo.getNumeroProtocolo());
+	        		etiqueta.setNomeInteressado1Etiqueta4("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
+	        		etiqueta.setNomeInteressado2Etiqueta4("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
+	        		etiqueta.setAssuntoEtiqueta4("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setMunicipioEtiqueta4("<b>Cidade:</b> " + protocolo.getCidade());
+	        		etiqueta.setOrigemEtiqueta4("<b>Origem:</b> " + protocolo.getOrigem());
+	        		etiqueta.setPalavraChaveEtiqueta4("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
+	        		etiqueta.setDocumentoEtiqueta4("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setAssuntoComplementoEtiqueta4("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		listaEtiqueta.add(etiqueta);
+	        		
+	        	} else {
+	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta4 + " não encontrado." );
+	        	}
+	        }
+	       
+	      //Etiqueta 5
+	        if (numeroProtocoloEtiqueta5 != "") {
+	        	protocoloDTO = new ProtocoloDTO();
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta5);
+	        	
+	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+	        	
+	        	protocolo = new Protocolo();
+	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta5);
+	        	protocolo.setInteressadoNome1("Nome Interessado 1");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2");
+	        	protocolo.setAssunto("Assunto Etiqueta 2");
+	        	protocolo.setCidade("Curitiba");
+	        	protocolo.setOrigem("Prefeitura");
+	        	protocolo.setPalavra1("Palavra Chave 1");
+	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setNumeroDocumento("009");
+	        	protocolo.setAnoDocumento("2013");
+	        	
+	        	
+	        	
+	        	if (protocolo != null) {
+	        		etiqueta = new EtiquetaDTO();
+	        		etiqueta.setOrgaoEtiqueta5("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setDataCadastroEtiqueta5("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setNumeroProtocoloEtiqueta5(protocolo.getNumeroProtocolo());
+	        		etiqueta.setNomeInteressado1Etiqueta5("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
+	        		etiqueta.setNomeInteressado2Etiqueta5("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
+	        		etiqueta.setAssuntoEtiqueta5("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setMunicipioEtiqueta5("<b>Cidade:</b> " + protocolo.getCidade());
+	        		etiqueta.setOrigemEtiqueta5("<b>Origem:</b> " + protocolo.getOrigem());
+	        		etiqueta.setPalavraChaveEtiqueta5("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
+	        		etiqueta.setDocumentoEtiqueta5("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setAssuntoComplementoEtiqueta5("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		listaEtiqueta.add(etiqueta);
+	        		
+	        	} else {
+	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta5 + " não encontrado." );
+	        	}
+	        }
+	        
+	        
 	        
 	        
 	        
