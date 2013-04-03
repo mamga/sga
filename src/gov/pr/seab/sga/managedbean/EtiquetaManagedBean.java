@@ -68,12 +68,12 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 		this.numeroProtocoloEtiqueta5 = numeroProtocoloEtiqueta5;
 	}
 	
-	public void gerarArquivoImpressao (ActionEvent actionEvent) {
+	/*public void gerarArquivoImpressao (ActionEvent actionEvent) {
 		List<String> lista = new ArrayList<String>();
 		JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(lista);//lista é uma arraylist com os dados que apareçam no meu relatorio  
 		Relatorio.imprimir(ds, "etiqueta.jasper", new HashMap<String, Object>());//o arquivo .jasper se encontra na pasta relatorio dentro da pasta WebContent 
 	}
-	
+	*/
 	
 	
 
@@ -83,7 +83,7 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        List<EtiquetaDTO> listaEtiqueta = new ArrayList<EtiquetaDTO>();
 	        Protocolo protocolo = null;
 	        ProtocoloDTO protocoloDTO = null;
-	        EtiquetaDTO etiqueta = null;
+	        EtiquetaDTO etiqueta = new EtiquetaDTO();;
 	        
 	        //Etiqueta 1
 	        if (numeroProtocoloEtiqueta1 != "") {
@@ -93,22 +93,21 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setDataCadastro("01/01/1950 10:50 - 1");
 	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta1);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 1");
-	        	protocolo.setCidade("Curitiba");
-	        	protocolo.setOrigem("Prefeitura");
-	        	protocolo.setPalavra1("Palavra Chave 1");
-	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 1");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 1");
+	        	protocolo.setAssunto("Assunto Etiqueta 1 - 1");
+	        	protocolo.setCidade("Curitiba - 1");
+	        	protocolo.setOrigem("Prefeitura - 1");
+	        	protocolo.setPalavra1("Palavra Chave 1 - 1");
+	        	protocolo.setPalavra2("Palavra Chave 2 - 1");
 	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013");
+	        	protocolo.setAnoDocumento("2013 - 1");
 	        	
 	        	
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta = new EtiquetaDTO();
 	        		etiqueta.setOrgaoEtiqueta1("<b>Órgão:</b>" + " SEAB");
 	        		etiqueta.setDataCadastroEtiqueta1("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta1(protocolo.getNumeroProtocolo());
@@ -126,6 +125,20 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta1 + " não encontrado." );
 	        	}
+	        } else {
+        		etiqueta.setOrgaoEtiqueta1("");
+        		etiqueta.setDataCadastroEtiqueta1("");
+        		etiqueta.setNumeroProtocoloEtiqueta1("");
+        		etiqueta.setNomeInteressado1Etiqueta1("");
+        		etiqueta.setNomeInteressado2Etiqueta1("");
+        		etiqueta.setAssuntoEtiqueta1("");
+        		etiqueta.setMunicipioEtiqueta1("");
+        		etiqueta.setOrigemEtiqueta1("");
+        		etiqueta.setPalavraChaveEtiqueta1("");
+        		etiqueta.setDocumentoEtiqueta1("");
+        		etiqueta.setAssuntoComplementoEtiqueta1("");
+        		
+        		listaEtiqueta.add(etiqueta);
 	        }
 	        
 	        //Etiqueta 2
@@ -136,22 +149,21 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setDataCadastro("01/01/1950 10:50 - 2");
 	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta2);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 2");
-	        	protocolo.setCidade("Curitiba");
-	        	protocolo.setOrigem("Prefeitura");
-	        	protocolo.setPalavra1("Palavra Chave 1");
-	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 2");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 2");
+	        	protocolo.setAssunto("Assunto Etiqueta 2 - 2");
+	        	protocolo.setCidade("Curitiba - 2");
+	        	protocolo.setOrigem("Prefeitura - 2");
+	        	protocolo.setPalavra1("Palavra Chave 1 - 2");
+	        	protocolo.setPalavra2("Palavra Chave 2 - 2");
 	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013");
+	        	protocolo.setAnoDocumento("2013 - 2");
 	        	
 	        	
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta = new EtiquetaDTO();
 	        		etiqueta.setOrgaoEtiqueta2("<b>Órgão:</b>" + " SEAB");
 	        		etiqueta.setDataCadastroEtiqueta2("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta2(protocolo.getNumeroProtocolo());
@@ -169,6 +181,20 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta2 + " não encontrado." );
 	        	}
+	        } else {
+        		etiqueta.setOrgaoEtiqueta2("");
+        		etiqueta.setDataCadastroEtiqueta2("");
+        		etiqueta.setNumeroProtocoloEtiqueta2("");
+        		etiqueta.setNomeInteressado1Etiqueta2("");
+        		etiqueta.setNomeInteressado2Etiqueta2("");
+        		etiqueta.setAssuntoEtiqueta2("");
+        		etiqueta.setMunicipioEtiqueta2("");
+        		etiqueta.setOrigemEtiqueta2("");
+        		etiqueta.setPalavraChaveEtiqueta2("");
+        		etiqueta.setDocumentoEtiqueta2("");
+        		etiqueta.setAssuntoComplementoEtiqueta2("");
+        		
+        		listaEtiqueta.add(etiqueta);
 	        }
 	        
 	      //Etiqueta 3
@@ -179,22 +205,21 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setDataCadastro("01/01/1950 10:50 - 3");
 	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta3);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 2");
-	        	protocolo.setCidade("Curitiba");
-	        	protocolo.setOrigem("Prefeitura");
-	        	protocolo.setPalavra1("Palavra Chave 1");
-	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 3");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 3");
+	        	protocolo.setAssunto("Assunto Etiqueta 2 - 3");
+	        	protocolo.setCidade("Curitiba - 3");
+	        	protocolo.setOrigem("Prefeitura - 3");
+	        	protocolo.setPalavra1("Palavra Chave 1 - 3");
+	        	protocolo.setPalavra2("Palavra Chave 2 - 3");
 	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013");
+	        	protocolo.setAnoDocumento("2013 - 3");
 	        	
 	        	
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta = new EtiquetaDTO();
 	        		etiqueta.setOrgaoEtiqueta3("<b>Órgão:</b>" + " SEAB");
 	        		etiqueta.setDataCadastroEtiqueta3("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta3(protocolo.getNumeroProtocolo());
@@ -212,6 +237,20 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta3 + " não encontrado." );
 	        	}
+	        } else {
+        		etiqueta.setOrgaoEtiqueta3("");
+        		etiqueta.setDataCadastroEtiqueta3("");
+        		etiqueta.setNumeroProtocoloEtiqueta3("");
+        		etiqueta.setNomeInteressado1Etiqueta3("");
+        		etiqueta.setNomeInteressado2Etiqueta3("");
+        		etiqueta.setAssuntoEtiqueta3("");
+        		etiqueta.setMunicipioEtiqueta3("");
+        		etiqueta.setOrigemEtiqueta3("");
+        		etiqueta.setPalavraChaveEtiqueta3("");
+        		etiqueta.setDocumentoEtiqueta3("");
+        		etiqueta.setAssuntoComplementoEtiqueta3("");
+        		
+        		listaEtiqueta.add(etiqueta);
 	        }
 	        
 	      //Etiqueta 4
@@ -222,22 +261,21 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setDataCadastro("01/01/1950 10:50 - 4");
 	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta4);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 2");
-	        	protocolo.setCidade("Curitiba");
-	        	protocolo.setOrigem("Prefeitura");
-	        	protocolo.setPalavra1("Palavra Chave 1");
-	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 4");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 4");
+	        	protocolo.setAssunto("Assunto Etiqueta 2 - 4");
+	        	protocolo.setCidade("Curitiba - 4");
+	        	protocolo.setOrigem("Prefeitura - 4");
+	        	protocolo.setPalavra1("Palavra Chave 1 - 4");
+	        	protocolo.setPalavra2("Palavra Chave 2 - 4");
 	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013");
+	        	protocolo.setAnoDocumento("2013 - 4");
 	        	
 	        	
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta = new EtiquetaDTO();
 	        		etiqueta.setOrgaoEtiqueta4("<b>Órgão:</b>" + " SEAB");
 	        		etiqueta.setDataCadastroEtiqueta4("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta4(protocolo.getNumeroProtocolo());
@@ -255,6 +293,20 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta4 + " não encontrado." );
 	        	}
+	        } else {
+        		etiqueta.setOrgaoEtiqueta4("");
+        		etiqueta.setDataCadastroEtiqueta4("");
+        		etiqueta.setNumeroProtocoloEtiqueta4("");
+        		etiqueta.setNomeInteressado1Etiqueta4("");
+        		etiqueta.setNomeInteressado2Etiqueta4("");
+        		etiqueta.setAssuntoEtiqueta4("");
+        		etiqueta.setMunicipioEtiqueta4("");
+        		etiqueta.setOrigemEtiqueta4("");
+        		etiqueta.setPalavraChaveEtiqueta4("");
+        		etiqueta.setDocumentoEtiqueta4("");
+        		etiqueta.setAssuntoComplementoEtiqueta4("");
+        		
+        		listaEtiqueta.add(etiqueta);
 	        }
 	       
 	      //Etiqueta 5
@@ -265,22 +317,21 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50");
+	        	protocolo.setDataCadastro("01/01/1950 10:50 - 5");
 	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta5);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 2");
-	        	protocolo.setCidade("Curitiba");
-	        	protocolo.setOrigem("Prefeitura");
-	        	protocolo.setPalavra1("Palavra Chave 1");
-	        	protocolo.setPalavra2("Palavra Chave 2");
+	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 5");
+	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 5");
+	        	protocolo.setAssunto("Assunto Etiqueta 2 - 5");
+	        	protocolo.setCidade("Curitiba - 5");
+	        	protocolo.setOrigem("Prefeitura - 5");
+	        	protocolo.setPalavra1("Palavra Chave 1 - 5");
+	        	protocolo.setPalavra2("Palavra Chave 2 - 5");
 	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013");
+	        	protocolo.setAnoDocumento("2013 - 5");
 	        	
 	        	
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta = new EtiquetaDTO();
 	        		etiqueta.setOrgaoEtiqueta5("<b>Órgão:</b>" + " SEAB");
 	        		etiqueta.setDataCadastroEtiqueta5("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta5(protocolo.getNumeroProtocolo());
@@ -298,6 +349,20 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	} else {
 	        		displayInfoMessageToUsuario("- Protocolo " + numeroProtocoloEtiqueta5 + " não encontrado." );
 	        	}
+	        } else {
+        		etiqueta.setOrgaoEtiqueta5("");
+        		etiqueta.setDataCadastroEtiqueta5("");
+        		etiqueta.setNumeroProtocoloEtiqueta5("");
+        		etiqueta.setNomeInteressado1Etiqueta5("");
+        		etiqueta.setNomeInteressado2Etiqueta5("");
+        		etiqueta.setAssuntoEtiqueta5("");
+        		etiqueta.setMunicipioEtiqueta5("");
+        		etiqueta.setOrigemEtiqueta5("");
+        		etiqueta.setPalavraChaveEtiqueta5("");
+        		etiqueta.setDocumentoEtiqueta5("");
+        		etiqueta.setAssuntoComplementoEtiqueta5("");
+        		
+        		listaEtiqueta.add(etiqueta);
 	        }
 	        
 	        

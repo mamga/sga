@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="etiquetaa4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50b0ebd1-2722-44bd-8485-58d68f9f6956">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="143"/>
+	<property name="ireport.y" value="1066"/>
 	<field name="orgaoEtiqueta1" class="java.lang.String"/>
 	<field name="dataCadastroEtiqueta1" class="java.lang.String"/>
 	<field name="numeroProtocoloEtiqueta1" class="java.lang.String"/>
@@ -25,6 +25,39 @@
 	<field name="documentoEtiqueta2" class="java.lang.String"/>
 	<field name="origemEtiqueta2" class="java.lang.String"/>
 	<field name="assuntoComplementoEtiqueta2" class="java.lang.String"/>
+	<field name="orgaoEtiqueta3" class="java.lang.String"/>
+	<field name="dataCadastroEtiqueta3" class="java.lang.String"/>
+	<field name="numeroProtocoloEtiqueta3" class="java.lang.String"/>
+	<field name="nomeInteressado1Etiqueta3" class="java.lang.String"/>
+	<field name="nomeInteressado2Etiqueta3" class="java.lang.String"/>
+	<field name="assuntoEtiqueta3" class="java.lang.String"/>
+	<field name="municipioEtiqueta3" class="java.lang.String"/>
+	<field name="palavraChaveEtiqueta3" class="java.lang.String"/>
+	<field name="documentoEtiqueta3" class="java.lang.String"/>
+	<field name="origemEtiqueta3" class="java.lang.String"/>
+	<field name="assuntoComplementoEtiqueta3" class="java.lang.String"/>
+	<field name="orgaoEtiqueta4" class="java.lang.String"/>
+	<field name="dataCadastroEtiqueta4" class="java.lang.String"/>
+	<field name="numeroProtocoloEtiqueta4" class="java.lang.String"/>
+	<field name="nomeInteressado1Etiqueta4" class="java.lang.String"/>
+	<field name="nomeInteressado2Etiqueta4" class="java.lang.String"/>
+	<field name="assuntoEtiqueta4" class="java.lang.String"/>
+	<field name="municipioEtiqueta4" class="java.lang.String"/>
+	<field name="palavraChaveEtiqueta4" class="java.lang.String"/>
+	<field name="documentoEtiqueta4" class="java.lang.String"/>
+	<field name="origemEtiqueta4" class="java.lang.String"/>
+	<field name="assuntoComplementoEtiqueta4" class="java.lang.String"/>
+	<field name="orgaoEtiqueta5" class="java.lang.String"/>
+	<field name="dataCadastroEtiqueta5" class="java.lang.String"/>
+	<field name="numeroProtocoloEtiqueta5" class="java.lang.String"/>
+	<field name="nomeInteressado1Etiqueta5" class="java.lang.String"/>
+	<field name="nomeInteressado2Etiqueta5" class="java.lang.String"/>
+	<field name="assuntoEtiqueta5" class="java.lang.String"/>
+	<field name="municipioEtiqueta5" class="java.lang.String"/>
+	<field name="palavraChaveEtiqueta5" class="java.lang.String"/>
+	<field name="documentoEtiqueta5" class="java.lang.String"/>
+	<field name="origemEtiqueta5" class="java.lang.String"/>
+	<field name="assuntoComplementoEtiqueta5" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -43,7 +76,7 @@
 				<reportElement uuid="a2751221-6b80-4f56-a03a-65080051e1af" x="27" y="331" width="500" height="140"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="b26fa728-7b22-484f-b789-cd16fa2fc60b" x="27" y="609" width="500" height="140"/>
+				<reportElement uuid="b26fa728-7b22-484f-b789-cd16fa2fc60b" x="27" y="610" width="500" height="140"/>
 			</rectangle>
 			<textField>
 				<reportElement uuid="7ad31eee-8f35-4b04-9283-55d0aaf49427" x="55" y="76" width="129" height="13"/>
@@ -178,6 +211,207 @@
 				<reportElement uuid="29e74163-d73f-4979-8ad6-bde90c337789" x="55" y="288" width="445" height="28"/>
 				<textElement markup="html"/>
 				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9461849a-3696-45bc-8827-1458c58cb3ac" x="367" y="346" width="133" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroProtocoloEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="88dfcedc-7df0-4a43-bdaa-8cc546e66027" x="55" y="388" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assuntoEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c8bc67a4-0106-44a7-b37d-69bb22ae62e0" x="317" y="388" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{municipioEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a0c15ba4-ba7e-4bf2-a109-ab310765d875" x="55" y="430" width="445" height="28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9cc82fdb-7318-40d0-93bc-2232f2d7255d" x="55" y="402" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{palavraChaveEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="113bfab5-d080-43c7-8bd5-6806c478851a" x="317" y="416" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{origemEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4a5e2983-25b5-4d9c-9f80-17ecdb6947cd" x="317" y="374" width="183" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado2Etiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0250e2c3-54d9-4918-afb0-de69485d438a" x="55" y="374" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado1Etiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="10f9c1d1-ce3f-4907-bdde-b665fdc6e8b4" x="174" y="360" width="166" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastroEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ab712063-b79e-4f82-8414-9e5e3f1fb52e" x="55" y="360" width="129" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orgaoEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e7556cc4-3312-4e5d-baff-c363d74af86c" x="55" y="416" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{documentoEtiqueta3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="45bad0fe-5921-4d97-b749-f15a7e3e6998" x="317" y="556" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{origemEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="996bdfab-6ec3-428b-93e7-a9c8c6764a8e" x="55" y="542" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{palavraChaveEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f3366964-2674-4f89-b1c5-3a764d1d5526" x="174" y="500" width="166" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastroEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="35fcc7fb-9ff5-443b-bfca-5bf741741dc5" x="55" y="570" width="445" height="28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="04d43312-744c-4533-a036-dbfdb4ce1d13" x="317" y="528" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{municipioEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="20a83fb0-c34a-4342-a93c-ba429502fa82" x="317" y="514" width="183" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado2Etiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5829f573-9604-45a0-b228-508dea3f4342" x="55" y="556" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{documentoEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="69c63c3b-5de7-40f4-89ed-90200f032075" x="55" y="500" width="129" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orgaoEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="24059933-72c0-4ea8-ac2e-7cb63f4da888" x="55" y="528" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assuntoEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="316a8aa3-84b0-4d25-904d-b50e073ef1f3" x="367" y="486" width="133" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroProtocoloEtiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c81d4349-7f8f-43f1-bca9-34f72e6ec160" x="55" y="514" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado1Etiqueta4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8efed518-1894-46dd-85f0-025892b23e2f" x="55" y="652" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado1Etiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="acb63e17-9585-46e9-9155-f28d577b1657" x="317" y="666" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{municipioEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="020bb8c0-5b6c-48fa-8dc8-eea0aac433e3" x="55" y="666" width="244" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assuntoEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="09072027-b766-467c-bb4f-e07ca18e5b0e" x="55" y="638" width="129" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orgaoEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eac64348-f146-4ca7-81d8-1deaa8ce5a0c" x="317" y="694" width="183" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{origemEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7f911b2d-a6dc-4226-a633-94906698a846" x="55" y="694" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{documentoEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3b913bdf-f133-4709-8aa7-0bb8e8c94854" x="317" y="652" width="183" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeInteressado2Etiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3b56178f-29a9-4612-b3c2-1590be26fec4" x="174" y="638" width="166" height="13"/>
+				<textElement markup="html">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataCadastroEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bfd1f5d9-601f-4ba1-b737-e33b1f34eedd" x="55" y="708" width="445" height="28"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{assuntoComplementoEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="241f70e3-8b4b-40d8-b18d-8b16d638e0bb" x="55" y="680" width="244" height="13"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{palavraChaveEtiqueta5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dbb927b6-dd19-42bd-bb7b-98c520c1aa2f" x="367" y="624" width="133" height="28"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroProtocoloEtiqueta5}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

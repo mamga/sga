@@ -5,10 +5,10 @@ body {
 }
 
 #cabecalho {
-    background-image: url("../resources/images/meio_cabec.jpg");
+    background-image: url("../resources/images/back_cabec_login.jpg");
     background-repeat: repeat-x;
     display: block;
-    height: 60px;
+    height: 80px;
     margin: 0;
     padding: 0;
 }
