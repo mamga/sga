@@ -4,6 +4,7 @@ import gov.pr.seab.sga.bean.Protocolo;
 import gov.pr.seab.sga.dto.EtiquetaDTO;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.facade.ProtocoloFacade;
+import gov.pr.seab.sga.util.ProtocoloUtil;
 import gov.pr.seab.sga.util.Relatorio;
 
 import java.io.Serializable;
@@ -83,42 +84,33 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        List<EtiquetaDTO> listaEtiqueta = new ArrayList<EtiquetaDTO>();
 	        Protocolo protocolo = null;
 	        ProtocoloDTO protocoloDTO = null;
-	        EtiquetaDTO etiqueta = new EtiquetaDTO();;
+	        EtiquetaDTO etiqueta = new EtiquetaDTO();
+	        String detalhamentoEtiqueta = "";
 	        
 	        //Etiqueta 1
 	        if (numeroProtocoloEtiqueta1 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
-	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta1);
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta1.replace(".", "").replace("-", ""));
 	        	
-	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
-	        	
-	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50 - 1");
-	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta1);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 1");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 1");
-	        	protocolo.setAssunto("Assunto Etiqueta 1 - 1");
-	        	protocolo.setCidade("Curitiba - 1");
-	        	protocolo.setOrigem("Prefeitura - 1");
-	        	protocolo.setPalavra1("Palavra Chave 1 - 1");
-	        	protocolo.setPalavra2("Palavra Chave 2 - 1");
-	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013 - 1");
-	        	
-	        	
+	        	protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta.setOrgaoEtiqueta1("<b>Órgão:</b>" + " SEAB");
-	        		etiqueta.setDataCadastroEtiqueta1("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setOrgaoEtiqueta1("<b>Órgão:</b> " + protocolo.getOrgaoCadastro());
+	        		etiqueta.setDataCadastroEtiqueta1("<b>Em:</b> " + protocolo.getDataCadastro() + " " + protocolo.getHoraHHCadastro() + ":" + protocolo.getHoraMMCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta1(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta1("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta1("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
-	        		etiqueta.setAssuntoEtiqueta1("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setAssuntoEtiqueta1("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta1("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta1("<b>Origem:</b> " + protocolo.getOrigem());
 	        		etiqueta.setPalavraChaveEtiqueta1("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
 	        		etiqueta.setDocumentoEtiqueta1("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
-	        		etiqueta.setAssuntoComplementoEtiqueta1("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		detalhamentoEtiqueta = "";
+	        		for (String detalhamento : protocolo.getDetalhamento() ) {
+	        			detalhamentoEtiqueta = detalhamentoEtiqueta +  detalhamento;
+	        		}
+	        		etiqueta.setAssuntoComplementoEtiqueta1("<b>Assunto/Complemento:</b> " + detalhamentoEtiqueta);
 	        		
 	        		listaEtiqueta.add(etiqueta);
 	        		
@@ -144,37 +136,27 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        //Etiqueta 2
 	        if (numeroProtocoloEtiqueta2 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
-	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta2);
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta2.replace(".", "").replace("-", ""));
 	        	
-	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
-	        	
-	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50 - 2");
-	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta2);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 2");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 2");
-	        	protocolo.setAssunto("Assunto Etiqueta 2 - 2");
-	        	protocolo.setCidade("Curitiba - 2");
-	        	protocolo.setOrigem("Prefeitura - 2");
-	        	protocolo.setPalavra1("Palavra Chave 1 - 2");
-	        	protocolo.setPalavra2("Palavra Chave 2 - 2");
-	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013 - 2");
-	        	
-	        	
+	        	protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta.setOrgaoEtiqueta2("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setOrgaoEtiqueta2("<b>Órgão:</b> " +  protocolo.getOrgaoCadastro());
 	        		etiqueta.setDataCadastroEtiqueta2("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta2(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta2("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta2("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
-	        		etiqueta.setAssuntoEtiqueta2("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setAssuntoEtiqueta2("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta2("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta2("<b>Origem:</b> " + protocolo.getOrigem());
 	        		etiqueta.setPalavraChaveEtiqueta2("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta2("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
-	        		etiqueta.setAssuntoComplementoEtiqueta2("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		etiqueta.setDocumentoEtiqueta2("<b>Número/Ano Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
+	        		
+	        		detalhamentoEtiqueta = "";
+	        		for (String detalhamento : protocolo.getDetalhamento() ) {
+	        			detalhamentoEtiqueta = detalhamentoEtiqueta +  detalhamento;
+	        		}
+	        		etiqueta.setAssuntoComplementoEtiqueta2("<b>Assunto/Complemento:</b> " + detalhamentoEtiqueta);
 	        		
 	        		listaEtiqueta.add(etiqueta);
 	        		
@@ -200,37 +182,27 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	      //Etiqueta 3
 	        if (numeroProtocoloEtiqueta3 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
-	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta3);
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta3.replace(".", "").replace("-", ""));
 	        	
-	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
-	        	
-	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50 - 3");
-	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta3);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 3");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 3");
-	        	protocolo.setAssunto("Assunto Etiqueta 2 - 3");
-	        	protocolo.setCidade("Curitiba - 3");
-	        	protocolo.setOrigem("Prefeitura - 3");
-	        	protocolo.setPalavra1("Palavra Chave 1 - 3");
-	        	protocolo.setPalavra2("Palavra Chave 2 - 3");
-	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013 - 3");
-	        	
-	        	
+	        	protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta.setOrgaoEtiqueta3("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setOrgaoEtiqueta3("<b>Órgão:</b> "  + protocolo.getOrgaoCadastro());
 	        		etiqueta.setDataCadastroEtiqueta3("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta3(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta3("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta3("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
-	        		etiqueta.setAssuntoEtiqueta3("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setAssuntoEtiqueta3("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta3("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta3("<b>Origem:</b> " + protocolo.getOrigem());
 	        		etiqueta.setPalavraChaveEtiqueta3("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
 	        		etiqueta.setDocumentoEtiqueta3("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
-	        		etiqueta.setAssuntoComplementoEtiqueta3("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		detalhamentoEtiqueta = "";
+	        		for (String detalhamento : protocolo.getDetalhamento() ) {
+	        			detalhamentoEtiqueta = detalhamentoEtiqueta +  detalhamento;
+	        		}
+	        		etiqueta.setAssuntoComplementoEtiqueta3("<b>Assunto/Complemento:</b> " + detalhamentoEtiqueta);
 	        		
 	        		listaEtiqueta.add(etiqueta);
 	        		
@@ -256,37 +228,27 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	      //Etiqueta 4
 	        if (numeroProtocoloEtiqueta4 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
-	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta4);
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta4.replace(".", "").replace("-", ""));
 	        	
-	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
-	        	
-	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50 - 4");
-	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta4);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 4");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 4");
-	        	protocolo.setAssunto("Assunto Etiqueta 2 - 4");
-	        	protocolo.setCidade("Curitiba - 4");
-	        	protocolo.setOrigem("Prefeitura - 4");
-	        	protocolo.setPalavra1("Palavra Chave 1 - 4");
-	        	protocolo.setPalavra2("Palavra Chave 2 - 4");
-	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013 - 4");
-	        	
-	        	
+	        	protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta.setOrgaoEtiqueta4("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setOrgaoEtiqueta4("<b>Órgão:</b> "  + protocolo.getOrgaoCadastro());
 	        		etiqueta.setDataCadastroEtiqueta4("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta4(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta4("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta4("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
-	        		etiqueta.setAssuntoEtiqueta4("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setAssuntoEtiqueta4("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta4("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta4("<b>Origem:</b> " + protocolo.getOrigem());
 	        		etiqueta.setPalavraChaveEtiqueta4("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
 	        		etiqueta.setDocumentoEtiqueta4("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
-	        		etiqueta.setAssuntoComplementoEtiqueta4("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		detalhamentoEtiqueta = "";
+	        		for (String detalhamento : protocolo.getDetalhamento() ) {
+	        			detalhamentoEtiqueta = detalhamentoEtiqueta +  detalhamento;
+	        		}
+	        		etiqueta.setAssuntoComplementoEtiqueta4("<b>Assunto/Complemento:</b> " + detalhamentoEtiqueta);
 	        		
 	        		listaEtiqueta.add(etiqueta);
 	        		
@@ -312,37 +274,27 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	      //Etiqueta 5
 	        if (numeroProtocoloEtiqueta5 != "") {
 	        	protocoloDTO = new ProtocoloDTO();
-	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta5);
+	        	protocoloDTO.setNumeroProtocolo(numeroProtocoloEtiqueta5.replace(".", "").replace("-", ""));
 	        	
-	        	//protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
-	        	
-	        	protocolo = new Protocolo();
-	        	protocolo.setDataCadastro("01/01/1950 10:50 - 5");
-	        	protocolo.setNumeroProtocolo(numeroProtocoloEtiqueta5);
-	        	protocolo.setInteressadoNome1("Nome Interessado 1 - 5");
-	        	protocolo.setInteressadoNome2("Nome Interessado 2 - 5");
-	        	protocolo.setAssunto("Assunto Etiqueta 2 - 5");
-	        	protocolo.setCidade("Curitiba - 5");
-	        	protocolo.setOrigem("Prefeitura - 5");
-	        	protocolo.setPalavra1("Palavra Chave 1 - 5");
-	        	protocolo.setPalavra2("Palavra Chave 2 - 5");
-	        	protocolo.setNumeroDocumento("009");
-	        	protocolo.setAnoDocumento("2013 - 5");
-	        	
-	        	
+	        	protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 	        	
 	        	if (protocolo != null) {
-	        		etiqueta.setOrgaoEtiqueta5("<b>Órgão:</b>" + " SEAB");
+	        		etiqueta.setOrgaoEtiqueta5("<b>Órgão:</b> " + protocolo.getOrgaoCadastro());
 	        		etiqueta.setDataCadastroEtiqueta5("<b>Em:</b> " + protocolo.getDataCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta5(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta5("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta5("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
-	        		etiqueta.setAssuntoEtiqueta5("<b>Assunto:</b> " + protocolo.getAssunto());
+	        		etiqueta.setAssuntoEtiqueta5("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta5("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta5("<b>Origem:</b> " + protocolo.getOrigem());
 	        		etiqueta.setPalavraChaveEtiqueta5("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
 	        		etiqueta.setDocumentoEtiqueta5("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
-	        		etiqueta.setAssuntoComplementoEtiqueta5("<b>Assunto/Complemento:</b> " + "??????????????");
+	        		
+	        		detalhamentoEtiqueta = "";
+	        		for (String detalhamento : protocolo.getDetalhamento() ) {
+	        			detalhamentoEtiqueta = detalhamentoEtiqueta +  detalhamento;
+	        		}
+	        		etiqueta.setAssuntoComplementoEtiqueta5("<b>Assunto/Complemento:</b> " + detalhamentoEtiqueta);
 	        		
 	        		listaEtiqueta.add(etiqueta);
 	        		
