@@ -69,14 +69,6 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 		this.numeroProtocoloEtiqueta5 = numeroProtocoloEtiqueta5;
 	}
 	
-	/*public void gerarArquivoImpressao (ActionEvent actionEvent) {
-		List<String> lista = new ArrayList<String>();
-		JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(lista);//lista é uma arraylist com os dados que apareçam no meu relatorio  
-		Relatorio.imprimir(ds, "etiqueta.jasper", new HashMap<String, Object>());//o arquivo .jasper se encontra na pasta relatorio dentro da pasta WebContent 
-	}
-	*/
-	
-	
 
 	public void gerarRelatorioTeste () throws Exception {
 		
@@ -103,8 +95,8 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        		etiqueta.setAssuntoEtiqueta1("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta1("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta1("<b>Origem:</b> " + protocolo.getOrigem());
-	        		etiqueta.setPalavraChaveEtiqueta1("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta1("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setPalavraChaveEtiqueta1("<b>Palavras Chaves:</b> " + protocolo.getPalavra1());
+	        		etiqueta.setDocumentoEtiqueta1("<b>Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
 	        		
 	        		detalhamentoEtiqueta = "";
 	        		for (String detalhamento : protocolo.getDetalhamento() ) {
@@ -142,15 +134,15 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	
 	        	if (protocolo != null) {
 	        		etiqueta.setOrgaoEtiqueta2("<b>Órgão:</b> " +  protocolo.getOrgaoCadastro());
-	        		etiqueta.setDataCadastroEtiqueta2("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setDataCadastroEtiqueta2("<b>Em:</b> " + protocolo.getDataCadastro() + " " + protocolo.getHoraHHCadastro() + ":" + protocolo.getHoraMMCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta2(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta2("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta2("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
 	        		etiqueta.setAssuntoEtiqueta2("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta2("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta2("<b>Origem:</b> " + protocolo.getOrigem());
-	        		etiqueta.setPalavraChaveEtiqueta2("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta2("<b>Número/Ano Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setPalavraChaveEtiqueta2("<b>Palavras Chaves:</b> " + protocolo.getPalavra1());
+	        		etiqueta.setDocumentoEtiqueta2("<b>Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
 	        		
 	        		detalhamentoEtiqueta = "";
 	        		for (String detalhamento : protocolo.getDetalhamento() ) {
@@ -188,15 +180,15 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	
 	        	if (protocolo != null) {
 	        		etiqueta.setOrgaoEtiqueta3("<b>Órgão:</b> "  + protocolo.getOrgaoCadastro());
-	        		etiqueta.setDataCadastroEtiqueta3("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setDataCadastroEtiqueta3("<b>Em:</b> " + protocolo.getDataCadastro() + " " + protocolo.getHoraHHCadastro() + ":" + protocolo.getHoraMMCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta3(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta3("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta3("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
 	        		etiqueta.setAssuntoEtiqueta3("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta3("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta3("<b>Origem:</b> " + protocolo.getOrigem());
-	        		etiqueta.setPalavraChaveEtiqueta3("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta3("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setPalavraChaveEtiqueta3("<b>Palavras Chaves:</b> " + protocolo.getPalavra1());
+	        		etiqueta.setDocumentoEtiqueta3("<b>Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
 	        		
 	        		detalhamentoEtiqueta = "";
 	        		for (String detalhamento : protocolo.getDetalhamento() ) {
@@ -234,15 +226,15 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	
 	        	if (protocolo != null) {
 	        		etiqueta.setOrgaoEtiqueta4("<b>Órgão:</b> "  + protocolo.getOrgaoCadastro());
-	        		etiqueta.setDataCadastroEtiqueta4("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setDataCadastroEtiqueta4("<b>Em:</b> " + protocolo.getDataCadastro() + " " + protocolo.getHoraHHCadastro() + ":" + protocolo.getHoraMMCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta4(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta4("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta4("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
 	        		etiqueta.setAssuntoEtiqueta4("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta4("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta4("<b>Origem:</b> " + protocolo.getOrigem());
-	        		etiqueta.setPalavraChaveEtiqueta4("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta4("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setPalavraChaveEtiqueta4("<b>Palavras Chaves:</b> " + protocolo.getPalavra1());
+	        		etiqueta.setDocumentoEtiqueta4("<b>Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
 	        		
 	        		detalhamentoEtiqueta = "";
 	        		for (String detalhamento : protocolo.getDetalhamento() ) {
@@ -280,15 +272,15 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 	        	
 	        	if (protocolo != null) {
 	        		etiqueta.setOrgaoEtiqueta5("<b>Órgão:</b> " + protocolo.getOrgaoCadastro());
-	        		etiqueta.setDataCadastroEtiqueta5("<b>Em:</b> " + protocolo.getDataCadastro());
+	        		etiqueta.setDataCadastroEtiqueta5("<b>Em:</b> " + protocolo.getDataCadastro() + " " + protocolo.getHoraHHCadastro() + ":" + protocolo.getHoraMMCadastro());
 	        		etiqueta.setNumeroProtocoloEtiqueta5(protocolo.getNumeroProtocolo());
 	        		etiqueta.setNomeInteressado1Etiqueta5("<b>Interessado 1:</b> " + protocolo.getInteressadoNome1());
 	        		etiqueta.setNomeInteressado2Etiqueta5("<b>Interessado 2:</b> " + protocolo.getInteressadoNome2());
 	        		etiqueta.setAssuntoEtiqueta5("<b>Assunto:</b> " + ProtocoloUtil.Assunto.getDescricao(protocolo.getAssunto()));
 	        		etiqueta.setMunicipioEtiqueta5("<b>Cidade:</b> " + protocolo.getCidade());
 	        		etiqueta.setOrigemEtiqueta5("<b>Origem:</b> " + protocolo.getOrigem());
-	        		etiqueta.setPalavraChaveEtiqueta5("<b>Palavras Chaves:</b> " + protocolo.getPalavra1() + " / " + protocolo.getPalavra2());
-	        		etiqueta.setDocumentoEtiqueta5("<b>Número/Ano Documento:</b> " + protocolo.getNumeroDocumento()+ "/" + protocolo.getAnoDocumento());
+	        		etiqueta.setPalavraChaveEtiqueta5("<b>Palavras Chaves:</b> " + protocolo.getPalavra1());
+	        		etiqueta.setDocumentoEtiqueta5("<b>Documento:</b> " + Integer.valueOf(protocolo.getNumeroDocumento()) + "/" + protocolo.getAnoDocumento());
 	        		
 	        		detalhamentoEtiqueta = "";
 	        		for (String detalhamento : protocolo.getDetalhamento() ) {

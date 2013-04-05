@@ -5,7 +5,8 @@ public class ProtocoloUtil {
 	
 	
 	public enum Assunto {
-		
+
+		PCTO("PCTO", "CONTRATO/CONVENIO"),
 		PACF("PACF", "AREA CONTABIL FISCAL"),                                                      
 		PAF("PAF", "PECUARIA"),
 		PAGRO("PAGRO",	"AGRICULTURA,  PECUARIA E ABASTECIMENTO"),
@@ -14,7 +15,6 @@ public class ProtocoloUtil {
 		PCNG("PCNG", "CONGRESSOS/CURSOS/JOGOS/EVENTOS"),                                           
 		PCOMU("PCOMU", "COMUNICADO/DOCUMENTACAO"),                                                   
 		PCONS("PCONS", "CONSTRUCAO/OBRAS"),                                                          
-		PCTO("PCTO", "CONTRATO/CONVENIO"),                                                         
 		PDIA("PDIA", "DIVIDA ATIVA"),                                                              
 		PESCO("PESCO", "AREA DE ENSINO"),                                                            
 		PETUR("PETUR", "ESPORTE/TURISMO/CULTURA"),                                                   
@@ -73,7 +73,7 @@ public class ProtocoloUtil {
 		
 	    public static String getDescricao(String codigo){	    	
 	       	for (Assunto assunto : Assunto.values()){
-	       		if(assunto.codigo.equals(codigo)){
+	       		if(assunto.codigo.equals(codigo.trim())){
 	       			return assunto.descricao;
 	       		}
 	    	}
