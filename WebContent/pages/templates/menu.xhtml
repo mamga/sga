@@ -13,25 +13,28 @@
    <h:body>  
      <ui:composition>
            
-			<p:menubar>  
-		        <!-- <p:submenu label="Cadastros">  
+			<!-- <p:menubar>  
+		        <p:submenu label="Cadastros">  
 		            <p:menuitem value="Setor" url="/pages/manterSetor/indexManterSetor.xhtml" />
 		            <p:menuitem value="Ajax" url="/pages/ajaxTeste/main.xhtml" />
 		            <p:menuitem value="Ajax Testes" url="/pages/ajaxTeste/ajaxteste.xhtml" />
 		            <p:menuitem value="Ajax Teste Ultimo" url="/pages/ajaxTeste/ultimo.xhtml" />  
-		        </p:submenu> -->  
+		        </p:submenu>  
 		  
-		        <!--
 		        <p:submenu label="Protocolo Geral AAX">  
 		            <p:menuitem value="Consulta Geral Protocolos" url="/pages/consultaGeralProtocolo/con_consultaGeralProtocolo.xhtml" />  
 		            <p:menuitem value="Consulta por Número Protocolo" url="#" />
-		            <p:menuitem value="Meus Protocolos" url="#" /> -->
+		            <p:menuitem value="Meus Protocolos" url="#" />
 		            <p:menuitem value="Impressão de Etiqueta" url="/pages/manterEtiqueta/indexManterEtiqueta.xhtml" />
-		        <!-- </p:submenu> -->  
+		        </p:submenu>  
 		  		  
-		        <!-- <p:menuitem value="Sair" url="#" /> -->  
-		  		        
-		    </p:menubar>             
+		        <p:menuitem value="Sair" url="#" />  
+		        		  		        
+		    </p:menubar> -->
+		    
+		    <h:form>
+				<p:menubar model="#{menuManagedBean.model}"/>
+			</h:form>             
            
      </ui:composition>  
    </h:body>
