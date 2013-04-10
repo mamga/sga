@@ -1,5 +1,8 @@
 package gov.pr.seab.sga.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ProtocoloUtil {
 	
@@ -79,6 +82,67 @@ public class ProtocoloUtil {
 	    	}
 	       	return null;
 	    }
+	}
+	
+	
+	public enum SetorSeab {
+		
+		AJUR("SEAB/AJUR", "ASSESSORIA JURIDICA"),                                
+		CL("SEAB/CL", "COMISSAO DE LICITACAO"),                              
+		DEAGRO("SEAB/DEAGRO", "DEPTO. DESENVOLVIMENTO AGRARIO"),                                
+		DERAL("SEAB/DERAL", "DEPARTAMENTO DE ECONOMIA RURAL"),                              
+		DG("SEAB/DG", "DIRECAO GERAL"),                                
+		GAS("SEAB/GAS", "GRUPO ADMINISTRATIVO SETORIAL"),                                
+		GFS("SEAB/GFS", "GRUPO FINANCEIRO SETORIAL"),                            
+		GPS("SEAB/GPS", "GRUPO PLANEJAMENTO SETORIAL"),                                
+		GRHS("SEAB/GRHS", "GRUPO DE REC. HUMANOS SETORIAL"),                                
+		GS("SEAB/GS", "GABINETE DO SECRETARIO"),                                
+		NII("SEAB/NII", "NUCLEO INFORMATICA INFORMACOES"),                                
+		PTG("SEAB/PTG", "PROTOCOLO GERAL");
+		
+		private final String codigo;
+		private final String descricao;
+
+		private SetorSeab(String codigo, String descricao) {
+			this.codigo = codigo;
+			this.descricao = descricao;
+		}
+
+		public boolean is(String codigo) {
+			return this.codigo.equals(codigo);
+		}
+	    	    
+		public static SetorSeab getSetor(String codigo){	    	
+	       	for (SetorSeab setor : SetorSeab.values()){
+	       		if(setor.codigo.equals(codigo)){
+	       			return setor;
+	       		}
+	    	}
+	       	return null;
+	    }
+		
+		public String getCodigo(){
+			return codigo;
+		}
+		
+	    public static String getDescricao(String codigo){	    	
+	    	for (SetorSeab setor : SetorSeab.values()){
+	       		if(setor.codigo.equals(codigo.trim())){
+	       			return setor.descricao;
+	       		}
+	    	}
+	       	return null;
+	    }
+	    
+	    public static List<SetorSeab> getSetores(){	  
+	    	List<SetorSeab> lista  = new ArrayList<SetorSeab>();
+	       	for (SetorSeab setor : SetorSeab.values()){
+	       		lista.add(setor);
+       			return lista;
+	    	}
+	       	return null;
+	    }
+		
 	}
 	
 	

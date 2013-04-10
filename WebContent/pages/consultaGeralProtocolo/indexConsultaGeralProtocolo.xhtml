@@ -14,8 +14,15 @@
 		             <p:panel header="Consulta Geral de Protocolos"> 
 			            	<h:panelGrid columns="2">
 			            	
-			            		<h:outputLabel for="numeroProtocolo" value="Número Protocolo" /> 
+			            		<h:outputLabel for="numeroProtocolo" value="Número Protocolo:" /> 
 				                <p:inputMask id="numeroProtocolo" value="#{protocoloManagedBean.numeroProtocolo}" mask="99.999.999-9"/>
+				                
+				                <h:outputLabel value="Interessado: " />  
+						        <p:selectOneMenu value="#{protocoloManagedBean.setor}" effect="fade">  
+						            <f:selectItem itemLabel="Selecione" itemValue="" />  
+						            <f:selectItems value="#{protocoloManagedBean.setoresSeab}" var="setor" itemLabel="#{setor.descricao}" itemValue="#{setor}"/>  
+						        </p:selectOneMenu>  
+						        
 			            	
 								<h:outputText value="Data Inicial: " />  
 	            				<p:inputMask value="#{protocoloManagedBean.dataInicial}" mask="99/99/9999"/>

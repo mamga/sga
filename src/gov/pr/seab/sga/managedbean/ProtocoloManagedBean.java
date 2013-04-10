@@ -3,6 +3,7 @@ package gov.pr.seab.sga.managedbean;
 import gov.pr.seab.sga.bean.Protocolo;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.facade.ProtocoloFacade;
+import gov.pr.seab.sga.util.ProtocoloUtil.SetorSeab;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,8 @@ public class ProtocoloManagedBean {
 	private String dataFinal;
 	private String cidade;
 	private List<Protocolo> listaProtocolos;
+	private SetorSeab setorSeab;
+	private List<SetorSeab> setoresSeab;
 	
 
 	public String getNumeroProtocolo() {
@@ -83,6 +86,22 @@ public class ProtocoloManagedBean {
 			setListaProtocolos(lista);			
 		}
 				
+	}
+
+	public SetorSeab getSetorSeab() {
+		return setorSeab;
+	}
+
+	public void setSetorSeab(SetorSeab setorSeab) {
+		this.setorSeab = setorSeab;
+	}
+
+	public List<SetorSeab> getSetoresSeab() {
+		return SetorSeab.getSetores();
+	}
+
+	public void setSetoresSeab(List<SetorSeab> setoresSeab) {
+		this.setoresSeab = setoresSeab;
 	}
 		
 	
