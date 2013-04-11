@@ -3,6 +3,7 @@ package gov.pr.seab.sga.managedbean;
 import gov.pr.seab.sga.bean.Protocolo;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.facade.ProtocoloFacade;
+import gov.pr.seab.sga.util.ProtocoloUtil.Municipio;
 import gov.pr.seab.sga.util.ProtocoloUtil.SetorSeab;
 
 import java.util.ArrayList;
@@ -22,11 +23,15 @@ public class ProtocoloManagedBean {
 	private String cidade;
 	private List<Protocolo> listaProtocolos;
 	private SetorSeab setorSeab;
-//	private List<SetorSeab> setoresSeab;
+	private Municipio municipio;
 	
 
 	public SetorSeab[] getSetoresSeab(){
 	    return SetorSeab.values();
+	}
+	
+	public Municipio[] getMunicipios(){
+	    return Municipio.values();
 	}
 	
 
@@ -82,8 +87,8 @@ public class ProtocoloManagedBean {
 		
 		List<Protocolo> lista = new ArrayList<Protocolo>();
 		ProtocoloDTO protocoloDTO = new ProtocoloDTO();
-		protocoloDTO.setNumeroProtocolo(getNumeroProtocolo());
-
+		protocoloDTO.setNumeroProtocolo(getNumeroProtocolo().replace(".", "").replace("-", ""));
+		
 		Protocolo protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 			
 		if (protocolo != null) {
@@ -101,14 +106,13 @@ public class ProtocoloManagedBean {
 		this.setorSeab = setorSeab;
 	}
 
-	/*public List<SetorSeab> getSetoresSeab() {
-		return SetorSeab.getSetores();
+	public Municipio getMunicipio() {
+		return municipio;
 	}
 
-	public void setSetoresSeab(List<SetorSeab> setoresSeab) {
-		this.setoresSeab = setoresSeab;
-	}*/
-		
-	
+	public void setMunicipio(Municipio municipio) {
+		this.municipio = municipio;
+	}
+
 	
 }

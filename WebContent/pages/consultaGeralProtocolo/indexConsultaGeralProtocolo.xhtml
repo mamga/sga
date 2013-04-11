@@ -9,9 +9,10 @@
 		<ui:define name="body">
 
 			<div id="conteudo_corpo">
-							
-				<h:form>
-		             <p:panel header="Consulta Geral de Protocolos"> 
+				<p:messages id="messages" autoUpdate="true" closable="true" />			
+				<h:form id="form">
+				
+		             <p:panel header="Consulta Geral de Protocolos - MAINFRAME" style="margin-bottom:10px;"> 
 			            	<h:panelGrid columns="2">
 			            	
 			            		<h:outputLabel for="numeroProtocolo" value="Número Protocolo:" /> 
@@ -28,50 +29,37 @@
 	            				<p:inputMask value="#{protocoloManagedBean.dataInicial}" mask="99/99/9999"/>
 	            				
 	            				<h:outputText value="Data Final: " />  
-	            				<p:inputMask value="#{protocoloManagedBean.dataFinal}" mask="99/99/9999"/>         						 
-				                 
-				                <h:outputLabel for="" value="" /> 
-				                <h:commandButton value="Consultar">
-				                	<f:ajax  execute="numeroProtocolo" render=":ajaxForm" listener="#{protocoloManagedBean.consultar}" />
-				                </h:commandButton>
-				                
-			                </h:panelGrid>
+	            				<p:inputMask value="#{protocoloManagedBean.dataFinal}" mask="99/99/9999"/>
+	            				
+	            				<h:outputLabel value="Município: " />  
+						        <p:selectOneMenu value="#{protocoloManagedBean.municipio}">  
+						            <f:selectItem itemLabel="Selecione" itemValue="" />  
+						            <f:selectItems value="#{protocoloManagedBean.municipios}" var="municipio" itemLabel="#{municipio.municipio}" itemValue="#{municipio}"/>  
+						        </p:selectOneMenu>         						 
+						    </h:panelGrid>
+				        	<br></br>
+
+							<p:separator></p:separator>
+							<center>
+								
+								<p:commandButton value="Consultar"
+				            				 actionListener="#{protocoloManagedBean.consultar}" 
+                                             update=":dataTableConsultaGeralProtocolo" 
+                                             icon="ui-icon-search"
+                                             process="@form"
+                                             />
+				             </center>
+			               
 		            </p:panel> 
 		        </h:form>  			
 
 	            <br></br>
-
-				<div id="tabContent">		        
-			        <h:form prependId="false" id="ajaxForm">
-		                <p:dataTable id="tabela" var="protocolo" value="#{protocoloManagedBean.listaProtocolos}" rendered="#{protocoloManagedBean.listaProtocolos != null}">  
-					        <p:column headerText="Número Protocolo">  
-					            <h:outputText value="#{protocolo.numeroProtocolo}" />  
-					        </p:column>  
-				    	</p:dataTable>  
-					</h:form>
-				</div>
+	            
+	            <ui:include src="/pages/consultaGeralProtocolo/dataTableConsultaGeralProtocolo.xhtml" />
+				
 			</div>	
 			
 		</ui:define>
 	</ui:composition>
 
 </ui:component>
-
-
-<!-- <h:outputLabel for="nomeInteressado" value="Interessado:" /> 
-			                	<p:selectOneMenu value="#{protocoloManagedBean.nomeInteressado}">  
-	           						<f:selectItem itemLabel="Selecione" itemValue="" />  
-	           						<f:selectItem itemLabel="Núcleo de Informática e Informações - NII"  itemValue="1"/> 
-	           						<f:selectItem itemLabel="Direção Geral - DG" itemValue="1" />  
-	            					<f:selectItem itemLabel="Núcleo de Convênios - NUCONV" itemValue="2" />  
-	       						</p:selectOneMenu> -->
-
-	       						
-<!-- <h:outputLabel for="cidade" value="Cidade:" /> 
-				                <p:selectOneMenu value="#{protocoloManagedBean.cidade}">  
-	           						<f:selectItem itemLabel="Selecione" itemValue="" />  
-	           						<f:selectItem itemLabel="Curitiba"  itemValue="1"/> 
-	           						<f:selectItem itemLabel="Maringá" itemValue="2" />  
-	            					<f:selectItem itemLabel="Jandaia do Sul" itemValue="3" />  
-	            					
-	       						</p:selectOneMenu>  -->
