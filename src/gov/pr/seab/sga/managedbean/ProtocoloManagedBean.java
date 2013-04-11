@@ -22,7 +22,12 @@ public class ProtocoloManagedBean {
 	private String cidade;
 	private List<Protocolo> listaProtocolos;
 	private SetorSeab setorSeab;
-	private List<SetorSeab> setoresSeab;
+//	private List<SetorSeab> setoresSeab;
+	
+
+	public SetorSeab[] getSetoresSeab(){
+	    return SetorSeab.values();
+	}
 	
 
 	public String getNumeroProtocolo() {
@@ -96,13 +101,13 @@ public class ProtocoloManagedBean {
 		this.setorSeab = setorSeab;
 	}
 
-	public List<SetorSeab> getSetoresSeab() {
+	/*public List<SetorSeab> getSetoresSeab() {
 		return SetorSeab.getSetores();
 	}
 
 	public void setSetoresSeab(List<SetorSeab> setoresSeab) {
 		this.setoresSeab = setoresSeab;
-	}
+	}*/
 		
 	
 	

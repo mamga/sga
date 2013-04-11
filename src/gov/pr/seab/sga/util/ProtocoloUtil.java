@@ -1,7 +1,5 @@
 package gov.pr.seab.sga.util;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ProtocoloUtil {
@@ -100,7 +98,36 @@ public class ProtocoloUtil {
 		NII("SEAB/NII", "NUCLEO INFORMATICA INFORMACOES"),                                
 		PTG("SEAB/PTG", "PROTOCOLO GERAL");
 		
-		private final String codigo;
+		private String codigo;
+		private String descricao;
+
+		private SetorSeab(String codigo, String descricao) {
+		    this.setCodigo(codigo);
+		    this.setDescricao(descricao);
+		}
+
+		public String getCodigo() {
+			return codigo;
+		}
+
+		public void setCodigo(String codigo) {
+			this.codigo = codigo;
+		}
+
+		public String getDescricao() {
+			return descricao;
+		}
+
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
+		
+		
+		
+		
+		
+		
+		/*private final String codigo;
 		private final String descricao;
 
 		private SetorSeab(String codigo, String descricao) {
@@ -112,10 +139,10 @@ public class ProtocoloUtil {
 			return this.codigo.equals(codigo);
 		}
 	    	    
-		public static SetorSeab getSetor(String codigo){	    	
-	       	for (SetorSeab setor : SetorSeab.values()){
-	       		if(setor.codigo.equals(codigo)){
-	       			return setor;
+		public static SetorSeab getSetorSeab(String codigo){	    	
+	       	for (SetorSeab setorSeab : SetorSeab.values()){
+	       		if(setorSeab.codigo.equals(codigo)){
+	       			return setorSeab;
 	       		}
 	    	}
 	       	return null;
@@ -126,22 +153,15 @@ public class ProtocoloUtil {
 		}
 		
 	    public static String getDescricao(String codigo){	    	
-	    	for (SetorSeab setor : SetorSeab.values()){
-	       		if(setor.codigo.equals(codigo.trim())){
-	       			return setor.descricao;
+	       	for (SetorSeab setorSeab : SetorSeab.values()){
+	       		if(setorSeab.codigo.equals(codigo.trim())){
+	       			return setorSeab.descricao;
 	       		}
 	    	}
 	       	return null;
-	    }
-	    
-	    public static List<SetorSeab> getSetores(){	  
-	    	List<SetorSeab> lista  = new ArrayList<SetorSeab>();
-	       	for (SetorSeab setor : SetorSeab.values()){
-	       		lista.add(setor);
-       			return lista;
-	    	}
-	       	return null;
-	    }
+	    }*/
+		
+
 		
 	}
 	

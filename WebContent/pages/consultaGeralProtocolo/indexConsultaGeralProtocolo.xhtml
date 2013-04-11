@@ -18,7 +18,7 @@
 				                <p:inputMask id="numeroProtocolo" value="#{protocoloManagedBean.numeroProtocolo}" mask="99.999.999-9"/>
 				                
 				                <h:outputLabel value="Interessado: " />  
-						        <p:selectOneMenu value="#{protocoloManagedBean.setor}" effect="fade">  
+						        <p:selectOneMenu value="#{protocoloManagedBean.setorSeab}">  
 						            <f:selectItem itemLabel="Selecione" itemValue="" />  
 						            <f:selectItems value="#{protocoloManagedBean.setoresSeab}" var="setor" itemLabel="#{setor.descricao}" itemValue="#{setor}"/>  
 						        </p:selectOneMenu>  
