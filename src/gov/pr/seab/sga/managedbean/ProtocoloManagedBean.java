@@ -6,7 +6,9 @@ import gov.pr.seab.sga.facade.ProtocoloFacade;
 import gov.pr.seab.sga.util.ProtocoloUtil.Municipio;
 import gov.pr.seab.sga.util.ProtocoloUtil.SetorSeab;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -14,14 +16,16 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class ProtocoloManagedBean {
+public class ProtocoloManagedBean extends AbstractManagedBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String numeroProtocolo;
 	private String nomeInteressado;
 	private String dataInicial;
 	private String dataFinal;
 	private String cidade;
-	private List<Protocolo> listaProtocolos;
+	private Collection<Protocolo> listaProtocolos;
 	private SetorSeab setorSeab;
 	private Municipio municipio;
 	
@@ -75,25 +79,48 @@ public class ProtocoloManagedBean {
 		this.cidade = cidade;
 	}
 
-	public List<Protocolo> getListaProtocolos() {
+	public Collection<Protocolo> getListaProtocolos() {
 		return listaProtocolos;
 	}
 
-	public void setListaProtocolos(List<Protocolo> listaProtocolos) {
+	public void setListaProtocolos(Collection<Protocolo> listaProtocolos) {
 		this.listaProtocolos = listaProtocolos;
 	}
 
-	public void consultar() throws Exception {
+	public void consultar() {
 		
-		List<Protocolo> lista = new ArrayList<Protocolo>();
-		ProtocoloDTO protocoloDTO = new ProtocoloDTO();
-		protocoloDTO.setNumeroProtocolo(getNumeroProtocolo().replace(".", "").replace("-", ""));
-		
-		Protocolo protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+		try {
+			Collection<Protocolo> lista = new ArrayList<Protocolo>();
+			ProtocoloDTO protocoloDTO = new ProtocoloDTO();
 			
-		if (protocolo != null) {
-			lista.add(protocolo);
-			setListaProtocolos(lista);			
+			
+			if (numeroProtocolo == "") {
+				protocoloDTO.setNumeroProtocolo(getNumeroProtocolo().replace(".", "").replace("-", ""));
+				Protocolo protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+				
+				if (protocolo != null) {
+					lista.add(protocolo);
+					setListaProtocolos(lista);			
+				}
+				
+			} else {
+				
+				protocoloDTO.setNomeInteressado(nomeInteressado);
+				protocoloDTO.setDataInicio(dataInicial);
+				protocoloDTO.setDataFim(dataFinal);
+				protocoloDTO.setMunicipio(cidade);
+				
+				setListaProtocolos(ProtocoloFacade.listarProtocolo(protocoloDTO));
+				
+			}
+			
+			if (lista.isEmpty()) {
+				lista = null;
+				displayInfoMessageToUsuario("Nenhum Registro Encontrado.");
+			}
+			
+		} catch (Exception e) {
+			displayErrorMessageToUsuario("Erro ao executar consulta: " + e);
 		}
 				
 	}
