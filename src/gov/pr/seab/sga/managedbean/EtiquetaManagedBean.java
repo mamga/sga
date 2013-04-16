@@ -1,6 +1,6 @@
 package gov.pr.seab.sga.managedbean;
 
-import gov.pr.seab.sga.bean.Protocolo;
+import gov.pr.seab.sga.bean.ProtocoloAAX;
 import gov.pr.seab.sga.dto.EtiquetaDTO;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.facade.ProtocoloFacade;
@@ -74,7 +74,7 @@ public class EtiquetaManagedBean extends AbstractManagedBean implements Serializ
 		
 		try {
 	        List<EtiquetaDTO> listaEtiqueta = new ArrayList<EtiquetaDTO>();
-	        Protocolo protocolo = null;
+	        ProtocoloAAX protocolo = null;
 	        ProtocoloDTO protocoloDTO = null;
 	        EtiquetaDTO etiqueta = new EtiquetaDTO();
 	        String detalhamentoEtiqueta = "";

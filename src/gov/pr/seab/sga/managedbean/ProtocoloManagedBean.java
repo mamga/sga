@@ -1,6 +1,6 @@
 package gov.pr.seab.sga.managedbean;
 
-import gov.pr.seab.sga.bean.Protocolo;
+import gov.pr.seab.sga.bean.ProtocoloAAX;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.facade.ProtocoloFacade;
 import gov.pr.seab.sga.util.ProtocoloUtil.Municipio;
@@ -25,7 +25,7 @@ public class ProtocoloManagedBean extends AbstractManagedBean implements Seriali
 	private String dataInicial;
 	private String dataFinal;
 	private String cidade;
-	private Collection<Protocolo> listaProtocolos;
+	private Collection<ProtocoloAAX> listaProtocolos;
 	private SetorSeab setorSeab;
 	private Municipio municipio;
 	
@@ -79,24 +79,24 @@ public class ProtocoloManagedBean extends AbstractManagedBean implements Seriali
 		this.cidade = cidade;
 	}
 
-	public Collection<Protocolo> getListaProtocolos() {
+	public Collection<ProtocoloAAX> getListaProtocolos() {
 		return listaProtocolos;
 	}
 
-	public void setListaProtocolos(Collection<Protocolo> listaProtocolos) {
+	public void setListaProtocolos(Collection<ProtocoloAAX> listaProtocolos) {
 		this.listaProtocolos = listaProtocolos;
 	}
 
 	public void consultar() {
 		
 		try {
-			Collection<Protocolo> lista = new ArrayList<Protocolo>();
+			Collection<ProtocoloAAX> lista = new ArrayList<ProtocoloAAX>();
 			ProtocoloDTO protocoloDTO = new ProtocoloDTO();
 			
 			
 			if (numeroProtocolo == "") {
 				protocoloDTO.setNumeroProtocolo(getNumeroProtocolo().replace(".", "").replace("-", ""));
-				Protocolo protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
+				ProtocoloAAX protocolo = ProtocoloFacade.obterProtocolo(protocoloDTO);
 				
 				if (protocolo != null) {
 					lista.add(protocolo);

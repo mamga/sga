@@ -5,7 +5,7 @@ import gov.pr.seab.sga.dto.ComboPesquisaDTO;
 import gov.pr.seab.sga.dto.ParecerTramitacaoDTO;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.dto.TramitacaoProtocoloDTO;
-import gov.pr.seab.sga.bean.Protocolo;
+import gov.pr.seab.sga.bean.ProtocoloAAX;
 import gov.pr.seab.sga.util.TxtFile;
 import gov.pr.seab.sga.util.Dominios.Tabela;
 
@@ -34,11 +34,11 @@ public class ProtocoloFacade {
 
 	
 	
-	public static Collection<Protocolo> listarProtocolo(ProtocoloDTO protocoloDTO) throws Exception {
+	public static Collection<ProtocoloAAX> listarProtocolo(ProtocoloDTO protocoloDTO) throws Exception {
 		return mainFrameFactory.getProtocoloDAO().listar(protocoloDTO);
 	}
 	
-	public static Protocolo obterProtocolo(ProtocoloDTO protocoloDTO) throws Exception{
+	public static ProtocoloAAX obterProtocolo(ProtocoloDTO protocoloDTO) throws Exception{
 		return mainFrameFactory.getProtocoloDAO().obter(protocoloDTO);
 	}
 	

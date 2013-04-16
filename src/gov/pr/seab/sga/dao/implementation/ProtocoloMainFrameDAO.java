@@ -6,7 +6,7 @@ import gov.pr.seab.sga.dao.ProtocoloDAO;
 import gov.pr.seab.sga.dto.ParecerTramitacaoDTO;
 import gov.pr.seab.sga.dto.ProtocoloDTO;
 import gov.pr.seab.sga.dto.TramitacaoProtocoloDTO;
-import gov.pr.seab.sga.bean.Protocolo;
+import gov.pr.seab.sga.bean.ProtocoloAAX;
 import gov.pr.seab.sga.util.Dominios;
 import gov.pr.seab.sga.util.Util;
 
@@ -21,11 +21,11 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 	private static Logger log = Logger.getLogger(ProtocoloMainFrameDAO.class);
 		
 	
-	public Collection<Protocolo> listar(ProtocoloDTO protocoloDTO) throws Exception {
+	public Collection<ProtocoloAAX> listar(ProtocoloDTO protocoloDTO) throws Exception {
 
 		log.info("Procedimento listar protocolo processando...");
 		
-		Collection<Protocolo> listaProtocolos = new ArrayList<Protocolo>();
+		Collection<ProtocoloAAX> listaProtocolos = new ArrayList<ProtocoloAAX>();
 		
 				
 		String cpfCnpj = Util.strNull( protocoloDTO.getCpfCnpjInteressado());
@@ -74,7 +74,7 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 			log.info("*** Criando lista de objetos ***");
 			for (String item : list){
 				int idx = 0;
-				Protocolo protocolo = new Protocolo();
+				ProtocoloAAX protocolo = new ProtocoloAAX();
 				protocolo.setNumeroProtocolo(item.substring(idx, idx+=9).trim());
 				protocolo.setInteressadoNome1(item.substring(idx, idx+=40).trim());
 				if(item.length() >= idx+35){
@@ -103,11 +103,11 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 	}
 
 
-	public Protocolo obter(ProtocoloDTO param) throws Exception {
+	public ProtocoloAAX obter(ProtocoloDTO param) throws Exception {
 		
 		log.info("*** Procedimento obter processando... ***");
 		
-		Protocolo obj = null;
+		ProtocoloAAX obj = null;
 		
 		
 		log.info("*** Formatando par�metros de entrada ***");
@@ -176,7 +176,7 @@ public class ProtocoloMainFrameDAO implements ProtocoloDAO {
 			
 						
 			int idx = 10;
-			obj = new Protocolo();
+			obj = new ProtocoloAAX();
 			obj.setNumeroProtocolo( Util.formatarProtocolo( ret.substring(idx, idx+=9) ) );
 			obj.setOrgaoCadastro( ret.substring(idx, idx+=12) );
 			obj.setDataCadastro( Util.formatarData( ret.substring(idx, idx+=8) ) );
